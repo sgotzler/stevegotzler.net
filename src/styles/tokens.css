@@ -1,0 +1,276 @@
+/* ==========================================================================
+   stevegotzler.net — color tokens
+   --------------------------------------------------------------------------
+   Two dark palettes, each with a Paper (light) counterpart:
+
+     D3 · Wayfinding, honey   <html data-palette="wayfinding">   (default)
+     A3 · Lecture, honey      <html data-palette="lecture">
+
+   Theme:   follows prefers-color-scheme; force with
+            <html data-theme="dark"> or <html data-theme="light">.
+   Section: set on <body> or <main> per page —
+            data-section="home | research | design | pedagogy | lab"
+            (Wayfinding uses it; Lecture ignores it).
+
+   The accent is defined ONCE (--honey). To try Straw instead, change that
+   one line to #EFD283.
+
+   Usage rules
+   - Components use the semantic tokens (--color-*), never primitives.
+   - --color-rule and --color-surface never carry text.
+   - In light mode the accent is too pale for text: text uses
+     --color-accent (ochre); honey survives only as --color-accent-fill
+     (active-nav bar, highlight, focus ring).
+   - "Forthcoming" is drawn as an outline in --color-status-forthcoming;
+     "in progress" and "alert" may fill or outline.
+   - Every text token below passes WCAG 2.2 AA (4.5:1) on both
+     --color-ground and --color-surface in its theme.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   Primitives
+   -------------------------------------------------------------------------- */
+:root {
+  /* the accent — change here only */
+  --honey:        #E8C46A;
+
+  /* Lecture (A3) dark — the decks' palette */
+  --black:        #000000;
+  --white:        #FFFFFF;
+  --pale-gold:    #FFE599;
+  --ash-a:        #999999;
+  --graphite-a:   #333333;
+  --sage-a:       #B6D7A8;
+  --sky-a:        #9FC5E8;
+  --lavender-a:   #B4A7D6;
+  --blush-a:      #F4CCCC;
+  --signal-a:     #FF0000;
+
+  /* Tuned (D3) dark */
+  --ink:          #0D0C0A;
+  --smoke:        #1C1A17;
+  --rule-dark:    #2E2B27;
+  --bone:         #EDE9E0;
+  --ash:          #9A958C;
+  --sage:         #A9C49B;
+  --sky:          #97B9D6;
+  --lavender:     #ADA3CC;
+  --blush:        #E2BDB8;
+  --signal:       #E5533D;
+
+  /* Paper (light, both palettes) */
+  --paper:        #F4F0E6;
+  --vellum:       #EBE5D6;
+  --rule-light:   #D6D0C2;
+  --ink-paper:    #141210;
+  --graphite:     #5E5A54;
+  --ochre:        #805E0F;
+  --ochre-deep:   #6E5010;
+  --moss:         #4F6B43;
+  --slate:        #3F6383;
+  --plum:         #5E5288;
+  --rose:         #8C4A57;
+  --brick:        #A8402E;
+}
+
+
+/* --------------------------------------------------------------------------
+   D3 · Wayfinding, honey — DARK (default)
+   -------------------------------------------------------------------------- */
+:root,
+[data-palette="wayfinding"] {
+  --color-ground:             var(--ink);
+  --color-surface:            var(--smoke);      /* catalogue plates */
+  --color-rule:               var(--rule-dark);
+  --color-text:               var(--bone);
+  --color-meta:               var(--ash);        /* kickers, dates, venues */
+
+  --color-accent:             var(--honey);      /* home + Research */
+  --color-accent-fill:        var(--honey);
+
+  /* per-section identity (overridden below by data-section) */
+  --color-section:            var(--color-accent);
+  --color-heading:            var(--color-section);
+  --color-link:               var(--color-section);
+  --color-section-title:      var(--color-section);
+  --color-work-title:         var(--color-section);  /* plate titles */
+  --color-quote:              var(--color-text);
+
+  --color-status-forthcoming: var(--ash);        /* outline only */
+  --color-status-progress:    var(--blush);
+  --color-status-alert:       var(--signal);
+
+  --color-focus:              var(--honey);
+}
+
+[data-palette="wayfinding"] [data-section="home"],
+[data-palette="wayfinding"] [data-section="research"],
+:root:not([data-palette]) [data-section="home"],
+:root:not([data-palette]) [data-section="research"] { --color-section: var(--honey); }
+[data-palette="wayfinding"] [data-section="design"],
+:root:not([data-palette]) [data-section="design"]   { --color-section: var(--lavender); }
+[data-palette="wayfinding"] [data-section="pedagogy"],
+:root:not([data-palette]) [data-section="pedagogy"] { --color-section: var(--sage); }
+[data-palette="wayfinding"] [data-section="lab"],
+:root:not([data-palette]) [data-section="lab"]      { --color-section: var(--sky); }
+
+/* Custom properties resolve where they are declared, so tokens built from
+   --color-section must be re-declared on the section element to pick up
+   that page's color. (Lecture is excluded: its headings stay honey.) */
+:root:not([data-palette="lecture"]) [data-section] {
+  --color-heading:       var(--color-section);
+  --color-link:          var(--color-section);
+  --color-section-title: var(--color-section);
+  --color-work-title:    var(--color-section);
+}
+
+/* Nav: each label takes its own section color when active or hovered.
+   Expose these so the nav can color labels without knowing the page. */
+:root {
+  --nav-research: var(--honey);
+  --nav-pedagogy: var(--sage);
+  --nav-lab:      var(--sky);
+}
+
+
+/* --------------------------------------------------------------------------
+   A3 · Lecture, honey — DARK
+   -------------------------------------------------------------------------- */
+[data-palette="lecture"] {
+  --color-ground:             var(--black);
+  --color-surface:            var(--black);
+  --color-rule:               var(--graphite-a);
+  --color-text:               var(--white);
+  --color-meta:               var(--ash-a);
+
+  --color-accent:             var(--honey);      /* headings, key terms, active nav */
+  --color-accent-fill:        var(--honey);
+
+  --color-section:            var(--color-accent);   /* no wayfinding */
+  --color-heading:            var(--color-accent);
+  --color-section-title:      var(--pale-gold);
+  --color-link:               var(--sky-a);
+  --color-work-title:         var(--sage-a);     /* titles of games and works */
+  --color-quote:              var(--blush-a);
+
+  --color-status-forthcoming: var(--pale-gold);
+  --color-status-progress:    var(--lavender-a);
+  --color-status-alert:       var(--signal-a);   /* deadlines only */
+
+  --color-focus:              var(--honey);
+
+  --nav-research: var(--honey);
+  --nav-pedagogy: var(--honey);
+  --nav-lab:      var(--honey);
+}
+
+
+/* --------------------------------------------------------------------------
+   PAPER — light counterparts
+   Applied by OS preference unless data-theme="dark" is set,
+   or forced with data-theme="light".
+   -------------------------------------------------------------------------- */
+
+/* shared Paper base */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-ground:   var(--paper);
+    --color-surface:  var(--vellum);
+    --color-rule:     var(--rule-light);
+    --color-text:     var(--ink-paper);
+    --color-meta:     var(--graphite);
+    --color-accent:   var(--ochre);
+    --color-accent-fill: var(--honey);         /* never text */
+    --color-focus:    var(--ochre);
+    --color-status-alert: var(--brick);
+  }
+}
+:root[data-theme="light"] {
+  --color-ground:   var(--paper);
+  --color-surface:  var(--vellum);
+  --color-rule:     var(--rule-light);
+  --color-text:     var(--ink-paper);
+  --color-meta:     var(--graphite);
+  --color-accent:   var(--ochre);
+  --color-accent-fill: var(--honey);
+  --color-focus:    var(--ochre);
+  --color-status-alert: var(--brick);
+}
+
+/* D3 Wayfinding → Paper */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) {
+    --color-section:            var(--ochre);
+    --color-status-forthcoming: var(--graphite);
+    --color-status-progress:    var(--rose);
+    --nav-research: var(--ochre);
+    --nav-pedagogy: var(--moss);
+    --nav-lab:      var(--slate);
+  }
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) [data-section="home"],
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) [data-section="research"] { --color-section: var(--ochre); }
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) [data-section="design"]   { --color-section: var(--plum); }
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) [data-section="pedagogy"] { --color-section: var(--moss); }
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) [data-section="lab"]      { --color-section: var(--slate); }
+}
+:root[data-theme="light"]:not([data-palette="lecture"]) {
+  --color-section:            var(--ochre);
+  --color-status-forthcoming: var(--graphite);
+  --color-status-progress:    var(--rose);
+  --nav-research: var(--ochre);
+  --nav-pedagogy: var(--moss);
+  --nav-lab:      var(--slate);
+}
+:root[data-theme="light"]:not([data-palette="lecture"]) [data-section="home"],
+:root[data-theme="light"]:not([data-palette="lecture"]) [data-section="research"] { --color-section: var(--ochre); }
+:root[data-theme="light"]:not([data-palette="lecture"]) [data-section="design"]   { --color-section: var(--plum); }
+:root[data-theme="light"]:not([data-palette="lecture"]) [data-section="pedagogy"] { --color-section: var(--moss); }
+:root[data-theme="light"]:not([data-palette="lecture"]) [data-section="lab"]      { --color-section: var(--slate); }
+
+/* A3 Lecture → Paper */
+@media (prefers-color-scheme: light) {
+  :root[data-palette="lecture"]:not([data-theme="dark"]) {
+    --color-section:            var(--ochre);
+    --color-heading:            var(--ochre);
+    --color-section-title:      var(--ochre-deep);
+    --color-link:               var(--slate);
+    --color-work-title:         var(--moss);
+    --color-quote:              var(--rose);
+    --color-status-forthcoming: var(--ochre-deep);
+    --color-status-progress:    var(--plum);
+    --nav-research: var(--ochre);
+    --nav-pedagogy: var(--ochre);
+    --nav-lab:      var(--ochre);
+  }
+}
+:root[data-palette="lecture"][data-theme="light"] {
+  --color-section:            var(--ochre);
+  --color-heading:            var(--ochre);
+  --color-section-title:      var(--ochre-deep);
+  --color-link:               var(--slate);
+  --color-work-title:         var(--moss);
+  --color-quote:              var(--rose);
+  --color-status-forthcoming: var(--ochre-deep);
+  --color-status-progress:    var(--plum);
+  --nav-research: var(--ochre);
+  --nav-pedagogy: var(--ochre);
+  --nav-lab:      var(--ochre);
+}
+
+
+/* --------------------------------------------------------------------------
+   Proportions (guidance, from the hierarchy boards)
+   D3 dark:  ground 48 · text 22 · section color 12 · surfaces/rules/meta 14 · status 4
+   A3 dark:  ground 50 · text 25 · honey 12 · secondary 8 · supporting 5
+   Paper:    ground 50 · text 25 · ochre/section 10 · secondary 11 · supporting 4
+
+   Contrast reference (text on ground / on surface)
+   Dark D3:  bone 16.1/14.3 · honey 11.7/10.4 · sage 10.3 · sky 9.5 · lavender 8.3
+             ash 6.6/5.8 · blush 11.4 · signal 5.3/4.7
+   Dark A3:  white 21 · honey 12.5 · pale gold 16.9 · sage 13.3 · sky 11.6
+             lavender 9.4 · blush 14.4 · ash 7.4 · red 5.3
+   Paper:    ink 16.4/14.9 · ochre 5.2/4.7 · ochre-deep 6.6 · graphite 6.0/5.5
+             moss 5.3/4.8 · slate 5.6/5.0 · plum 6.1/5.5 · rose 5.7/5.2 · brick 5.4/4.9
+   Pale gold vs body text is ~1.1:1 — separate by weight, not color alone.
+   -------------------------------------------------------------------------- */

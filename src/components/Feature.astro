@@ -1,0 +1,76 @@
+---
+// The large block: image on one side, text on the other.
+import type { CollectionEntry } from 'astro:content';
+import Carousel from './Carousel.astro';
+import Figure from './Figure.astro';
+import { slidesFor } from '../lib/images';
+import VenueLine from './VenueLine.astro';
+import { inline, LOREM } from '../lib/text';
+
+interface Props {
+  entry: CollectionEntry<'books'> | CollectionEntry<'podcast'>;
+  linked: CollectionEntry<'writing'>[]; // talks and publications tied to this entry
+}
+const { entry, linked } = Astro.props;
+const d = entry.data;
+const small = d.kind !== 'book';
+const hasSlides = slidesFor(entry.id).length > 0;
+---
+
+<article class:list={['feature', { paired: d.kind === 'paired', square: d.kind === 'podcast' }]} id={entry.id}>
+  {
+    hasSlides ? (
+      <Carousel id={entry.id} label={d.title} gallery={d.gallery} ratio={d.kind === 'book' ? '4 / 3' : '1'} framed />
+    ) : (
+      <Figure id={entry.id} alt={d.imageAlt} note={d.imageNote} focus={d.imageFocus} lineArt={d.lineArt} />
+    )
+  }
+  <div>
+    <p class="kicker">{[d.type, d.years, d.status].filter(Boolean).join(' · ')}</p>
+    <h3 set:html={inline(d.title)} />
+    {d.subtitle && <p class="sub" set:html={inline(d.subtitle)} />}
+    <div class="body">
+      {
+        d.description ? (
+          d.description.split(/\n\s*\n/).map((para) => <p set:html={inline(para.trim())} />)
+        ) : small ? (
+          <p>{LOREM[0]}</p>
+        ) : (
+          <>
+            <p>{LOREM[1]}</p>
+            <p>{LOREM[2]}</p>
+          </>
+        )
+      }
+    </div>
+    <dl class="fields">
+      {
+        d.press && (
+          <>
+            <dt>Press</dt>
+            <dd>{d.press}</dd>
+          </>
+        )
+      }
+      {
+        d.collaborators.length > 0 && (
+          <>
+            <dt>With</dt>
+            <dd>{d.collaborators.join(', ')}</dd>
+          </>
+        )
+      }
+      <VenueLine entries={linked} />
+      {
+        d.link && (
+          <>
+            <dt>Visit</dt>
+            <dd>
+              <a href={d.link}>{new URL(d.link).hostname.replace(/^www\./, '')}</a>
+            </dd>
+          </>
+        )
+      }
+    </dl>
+  </div>
+</article>

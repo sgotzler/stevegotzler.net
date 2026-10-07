@@ -1,0 +1,775 @@
+/* Colours come from tokens.css. Everything here uses the semantic --color-* tokens only,
+   never the raw palette values, so palette, theme and section switching keep working.
+   Colour logic: text is neutral; the page's colour (--color-section) marks kickers, source lines,
+   image-plate types, the page label and hovers. */
+:root {
+  /* Labels: dates, types, source lines, nav, section heads. A grotesque sans-serif. */
+  --label: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+
+  --max: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-text);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover {
+  color: var(--color-section);
+}
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+.shell {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.mono {
+  font-family: var(--label);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+.muted {
+  color: var(--color-meta);
+}
+
+.skip {
+  position: absolute;
+  left: -999px;
+}
+.skip:focus {
+  left: var(--gutter);
+  top: 0.5rem;
+  background: var(--color-ground);
+  padding: 0.25rem 0.5rem;
+}
+
+/* Bracketed links: [key: value] */
+.bracket {
+  font-family: var(--label);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.bracket::before {
+  content: '[';
+  color: var(--color-meta);
+}
+.bracket::after {
+  content: ']';
+  color: var(--color-meta);
+}
+.bracket .k {
+  color: var(--color-meta);
+}
+a.bracket:hover,
+button.bracket:hover {
+  color: var(--color-section);
+}
+
+/* Trial switch: plain labels without the square brackets */
+:root[data-brackets='off'] .bracket::before,
+:root[data-brackets='off'] .bracket::after {
+  content: none;
+}
+:root[data-brackets='off'] .site-nav {
+  gap: 0.25rem 1.5rem;
+}
+:root[data-brackets='off'] .site-footer .shell {
+  gap: 0.5rem 1.75rem;
+}
+
+/* Header and footer */
+.site-header {
+  border-bottom: 1px solid var(--color-rule);
+}
+.site-header .shell {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.1rem;
+  padding-bottom: 1rem;
+}
+.site-name {
+  font-family: var(--label);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.site-name:hover {
+  color: var(--color-section);
+}
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+}
+/* Each nav label takes its own section colour when hovered or current; the current page also gets a bar */
+.site-nav a.bracket:hover,
+.site-nav a[aria-current='page'] {
+  color: var(--nav-color, var(--color-section));
+}
+.site-nav a[aria-current='page'] {
+  box-shadow: 0 0.45em 0 -0.3em currentColor;
+}
+button.bracket {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--color-meta);
+  cursor: pointer;
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-rule);
+  margin-top: 5rem;
+}
+.site-footer .shell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  padding-top: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+/* Page head */
+.page-head {
+  padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3.5rem);
+}
+.page-head h1 {
+  font-family: var(--label);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-heading);
+  margin-bottom: 1.25rem;
+}
+.page-head .lede {
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+/* Trial switch: the lede set in the monospace (a little smaller, since monospace letters are wider) */
+:root[data-lede='mono'] .page-head .lede {
+  font-family: var(--label);
+  font-size: clamp(1.25rem, 2.9vw, 2.05rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* Trial switch, third state: the lede small and spare in the monospace, a modest summary line */
+:root[data-lede='small'] .page-head .lede {
+  font-family: var(--label);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  letter-spacing: 0;
+  max-width: none;
+}
+/* At this size the lede runs on one line where there is room */
+:root[data-lede='small'] .page-head .lede br {
+  display: none;
+}
+
+/* Trial switch, fourth state: no lede at all; the page label and index stand alone */
+:root[data-lede='off'] .page-head .lede {
+  display: none;
+}
+:root[data-lede='off'] .page-head .page-index {
+  margin-top: 0;
+}
+
+/* A lede with its own line break, given room for a longer second line */
+.page-head .lede.wide {
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+.page-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin-top: 2rem;
+}
+.page-index a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+.page-index a:hover {
+  color: var(--color-section);
+}
+.page-index .n {
+  color: var(--color-meta);
+  margin-right: 0.4em;
+}
+
+/* Sections */
+.section {
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-top: 1px solid var(--color-rule);
+  padding: 0.6rem 0 1.5rem;
+}
+.section-head h2 {
+  font-family: var(--label);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+.section-head .n {
+  font-family: var(--label);
+  font-size: 0.8125rem;
+  color: var(--color-meta);
+}
+.subhead {
+  font-family: var(--label);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-meta);
+  margin: 2.25rem 0 0.6rem;
+}
+.subhead:first-of-type {
+  margin-top: 0;
+}
+
+/* Field lists (label / value rows) */
+.fields {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+.fields dd {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.fields dt {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-meta);
+  padding-top: 0.2em;
+}
+
+/* Image placeholder until real images arrive */
+.ph {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+  color: var(--color-meta);
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
+}
+.ph::before,
+.ph::after {
+  content: '';
+  position: absolute;
+  background: var(--color-rule);
+}
+.ph::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+}
+.ph::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+.ph span {
+  position: relative;
+  background: var(--color-surface);
+  padding: 0.3rem 0.6rem;
+  font-family: var(--label);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  max-width: 22ch;
+}
+
+/* A drawn mark sits in the placeholder's frame, without the crosshair */
+.ph.mark::before,
+.ph.mark::after {
+  display: none;
+}
+.ph.mark {
+  color: var(--color-text);
+  padding: 0;
+}
+.ph.mark svg {
+  width: 78%;
+  height: auto;
+}
+
+/* Real images fill the same frame the placeholder held */
+.figure-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid var(--color-rule);
+}
+.feature .figure-img {
+  aspect-ratio: 4 / 3;
+}
+.feature.square .figure-img {
+  aspect-ratio: 1;
+  width: min(20rem, 100%);
+}
+.feature.paired .figure-img {
+  aspect-ratio: 1;
+  width: min(11rem, 100%);
+  justify-self: end;
+}
+.plate.project .figure-img {
+  aspect-ratio: 3 / 2;
+  border-width: 0 0 1px;
+  border-color: var(--color-rule);
+}
+
+/* Line art (black on white) takes on the page's colours: pale lines on dark, ink lines on paper.
+   Dark is the default theme; light follows the same rules as tokens.css. */
+.figure-img.line-art {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme='dark']) .figure-img.line-art {
+    filter: none;
+    mix-blend-mode: multiply;
+  }
+}
+:root[data-theme='light'] .figure-img.line-art {
+  filter: none;
+  mix-blend-mode: multiply;
+}
+
+/* Feature (colophon layout): one item given room */
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(1.25rem, 4vw, 3rem);
+  padding: 1.75rem 0;
+  border-top: 1px solid var(--color-rule);
+}
+.feature:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+.feature .ph {
+  aspect-ratio: 4 / 3;
+}
+.feature .kicker {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-section); /* the page's colour marks status */
+  margin-bottom: 0.6rem;
+}
+.feature h3 {
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.feature .sub {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--color-meta);
+  margin-top: 0.4rem;
+}
+.feature .body {
+  margin: 1.1rem 0 1.4rem;
+  max-width: 60ch;
+  font-size: 1rem; /* a little under the page's base size, to sit with the sans-serif labels */
+  line-height: 1.55;
+}
+.feature .body p + p {
+  margin-top: 0.8rem;
+}
+
+/* The podcast's cover art is square */
+.feature.square .ph {
+  aspect-ratio: 1;
+  width: min(20rem, 100%);
+}
+
+/* A carousel in a feature keeps the frame its single image would have had */
+.feature.square .carousel {
+  width: min(20rem, 100%);
+}
+.feature.paired .carousel {
+  width: min(11rem, 100%);
+  justify-self: end;
+}
+
+/* A paired project sits directly under its book, set in from the left */
+.feature.paired {
+  border-top: 1px dashed var(--color-rule);
+  padding-top: 1.25rem;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+.feature.paired .ph {
+  aspect-ratio: 1;
+  width: min(11rem, 100%);
+  justify-self: end;
+}
+.feature.paired h3 {
+  font-size: 1.4rem;
+}
+
+/* Catalogue: a ruled grid of plates */
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  border-top: 1px solid var(--color-rule);
+  border-left: 1px solid var(--color-rule);
+}
+.catalogue.wide {
+  grid-template-columns: repeat(auto-fill, minmax(21rem, 1fr));
+}
+.catalogue.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.plate {
+  border-right: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+  padding: 0.9rem 1rem 1.1rem;
+  min-width: 0;
+}
+.plate:target {
+  background: var(--color-surface);
+  box-shadow: inset 0 0 0 2px var(--color-accent-fill);
+}
+.plate-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-family: var(--label);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--color-meta);
+  margin-bottom: 0.9rem;
+}
+.plate-title {
+  font-size: 1.1875rem;
+  font-weight: 500;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+.plate-sub {
+  font-style: italic;
+  line-height: 1.3;
+  margin-top: 0.3rem;
+}
+/* Titles of works inside an italic subtitle are set upright (reverse italics) */
+.plate-sub em,
+.feature .sub em {
+  font-style: normal;
+}
+.plate-venue {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-section); /* the journal, book, or event: where the work appeared, in the page's colour */
+  margin-top: 0.55rem;
+}
+
+/* Image plates show the type or status in their meta line in the page's colour, like a feature's kicker */
+.plate.project .plate-meta span:last-child {
+  color: var(--color-section);
+}
+
+/* A small outlined tag for a label worth noticing (a current term, "Proposed"), in the page's colour */
+.tag {
+  display: inline-block;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  padding: 0.05em 0.45em;
+  color: var(--color-section);
+}
+.kicker .tag {
+  margin-left: 0.6em;
+}
+/* A tag for something happening now, e.g. the term a course is being taught */
+.tag.now {
+  color: var(--color-status-progress);
+}
+
+/* Events folded away behind a "show events" control */
+.events {
+  margin-top: 0.9rem;
+  border-top: 1px dashed var(--color-rule);
+  padding-top: 0.6rem;
+}
+.events > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--label);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--color-meta);
+}
+.events > summary::-webkit-details-marker {
+  display: none;
+}
+.events > summary::before {
+  content: '+\00a0';
+}
+.events[open] > summary::before {
+  content: '–\00a0';
+}
+.events > summary:hover {
+  color: var(--color-section);
+}
+.events.open {
+  border-top: 0;
+  padding-top: 0;
+}
+.events.open ol {
+  margin-top: 0;
+}
+.events .hide,
+.events[open] .show {
+  display: none;
+}
+.events[open] .hide {
+  display: inline;
+}
+.events ol {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+}
+.events li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 0.15rem 0.9rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--color-rule);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+/* An event in several sittings: title once, then date and place rows */
+.events li.group-title {
+  display: block;
+}
+/* No rule between one grouped event and the next: space alone separates them */
+.events li.group-title:not(:first-child) {
+  border-top: 0;
+  padding-top: 0.7rem;
+}
+.events li.session {
+  border-top: 0;
+  padding-top: 0;
+}
+.events .where {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  color: var(--color-meta);
+  padding-top: 0.15em;
+}
+.events .when {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  color: var(--color-meta);
+  padding-top: 0.15em;
+}
+.events .who {
+  display: block;
+  font-family: var(--label);
+  font-size: 0.75rem;
+  color: var(--color-meta);
+  margin-top: 0.15rem;
+}
+
+/* A drawn mark in an image plate keeps the plate's frame */
+.plate.project .ph.mark {
+  aspect-ratio: 3 / 2;
+  border-width: 0 0 1px;
+}
+.plate.project.small .ph.mark {
+  aspect-ratio: 2 / 1;
+}
+
+/* Partnership plates are a little smaller: a shallower image */
+.plate.project.small .ph,
+.plate.project.small .figure-img {
+  aspect-ratio: 2 / 1;
+}
+.plate.project.small .plate-title {
+  font-size: 1.1875rem;
+}
+
+/* A quiet note under a catalogue */
+.catalogue-note {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-meta);
+  margin-top: 0.9rem;
+}
+
+/* Grey lines under the source line: a note (special issue, series) and co-authors or co-presenters */
+.plate-with {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--color-meta);
+  margin-top: 0.2rem;
+}
+
+/* A linked title leads to the published piece; the arrow marks it without relying on colour */
+.plate-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.plate-title a::after {
+  content: '\00a0↗';
+  font-family: var(--label);
+  font-size: 0.7em;
+  color: var(--color-meta);
+}
+.plate-title a:hover {
+  color: var(--color-section);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+.plate-title a:hover::after {
+  color: var(--color-section);
+}
+
+/* Project plates carry an image */
+.plate.project {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.plate.project .ph {
+  aspect-ratio: 3 / 2;
+  border-width: 0 0 1px;
+  border-color: var(--color-rule);
+}
+.plate.project .inner {
+  padding: 0.9rem 1rem 1.2rem;
+}
+.plate.project .plate-title {
+  font-size: 1.375rem;
+}
+.plate.project .desc {
+  font-size: 0.9375rem;
+  margin: 0.6rem 0 0.9rem;
+}
+
+@media (max-width: 44rem) {
+  .catalogue.two {
+    grid-template-columns: 1fr;
+  }
+  .feature,
+  .feature.paired {
+    grid-template-columns: 1fr;
+  }
+  .feature.paired .ph {
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* About: a reading column of bio, with a column of plain facts beside it */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 38rem) minmax(0, 22rem);
+  gap: 2.5rem clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+.about-body p + p {
+  margin-top: 1em;
+}
+.about-body {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+.about a {
+  color: var(--color-text);
+  text-decoration-color: var(--color-section);
+  text-underline-offset: 0.2em;
+}
+.about a:hover {
+  color: var(--color-section);
+}
+.about-facts {
+  border-top: 1px solid var(--color-rule);
+  padding-top: 1rem;
+}
+@media (max-width: 52rem) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+}

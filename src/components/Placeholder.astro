@@ -1,0 +1,11 @@
+---
+// Stands in for an image until the real one arrives.
+interface Props {
+  note?: string;
+}
+const { note } = Astro.props;
+---
+
+<div class="ph" role="img" aria-label={`Image to come${note ? `: ${note}` : ''}`}>
+  <span>image to come{note && <><br />{note}</>}</span>
+</div>

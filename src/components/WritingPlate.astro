@@ -1,0 +1,38 @@
+---
+// One publication or talk (a text plate). Everything shows on the plate; nothing is hidden.
+// A title links out when the piece is online, marked with a small arrow.
+import type { CollectionEntry } from 'astro:content';
+import { inline } from '../lib/text';
+
+interface Props {
+  entry: CollectionEntry<'writing'>;
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const isTalk = d.kind === 'talk';
+// Talks: event and place. Publications: the journal or book title only.
+const source = isTalk
+  ? inline(d.venue) + (d.place ? `, ${inline(d.place)}` : '')
+  : inline(d.venue.split(',')[0]);
+const status = d.status && d.status !== 'published' ? ` · ${d.status}` : '';
+---
+
+<article class:list={['plate', d.kind]} id={entry.id}>
+  <div class="plate-meta">
+    <span>{d.date}</span>
+    <span>{d.type}{status}</span>
+  </div>
+  <h4 class="plate-title">
+    {d.link ? <a href={d.link} set:html={inline(d.title)} /> : <Fragment set:html={inline(d.title)} />}
+  </h4>
+  {d.subtitle && <p class="plate-sub" set:html={inline(d.subtitle)} />}
+  <p class="plate-venue" set:html={source} />
+  {d.note && <p class="plate-with" set:html={inline(d.note)} />}
+  {d.coauthors.length > 0 && <p class="plate-with">With {d.coauthors.join(', ')}</p>}
+</article>
+
+<style>
+  h4 {
+    margin: 0;
+  }
+</style>

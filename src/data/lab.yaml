@@ -1,0 +1,128 @@
+# The Lab page. `kind` decides the layout:
+#   feature     — the large block at the top (the DLC Lab)
+#   child       — a smaller block set in beneath it (the program, ongoing lab projects)
+#   seminar     — the Carolina Seminar, a large block in its own section, events folded away
+#   partnership — not shown on the site (see the note near the end of this file)
+# Images: put a file named after the id in src/assets/images/ (e.g. dlc-lab.jpg).
+
+- id: dlc-lab
+  kind: feature
+  order: 1
+  name: Digital Literacy and Communications Lab
+  short: DLC Lab
+  role: Director
+  years: 2026–
+  roles: [Director (2026–), Associate Director (2023–26)]
+  description: The lab supports research, teaching, and public work across the digital humanities and critical game studies.
+  link: https://dlclab.unc.edu/
+  imageNote: the lab
+  imageAlt: The DLC Lab logo, with DLC and LAB in large white letters around the words Digital Literacy and Communications, on Carolina blue with cross-hatched corners
+
+- id: critical-game-studies-program
+  kind: child
+  order: 2
+  name: Critical Game Studies Program
+  role: Director
+  years: 2026–
+  roles: [Director (2026–)]
+  # Do not mention the minor until it is formally approved.
+  description: The program offers a critical perspective on games and culture, and an environment for exploring alternate play practices that embrace difference. It also manages the [Greenlaw Gameroom](https://dlclab.unc.edu/gaming-program/greenlaw-game-room/).
+  link: https://dlclab.unc.edu/gaming-program/
+  imageNote: still from the Gameroom video
+  imageAlt: The Greenlaw Gameroom logo, a round pixel-art badge with the Old Well, a ram, and a game controller
+
+- id: local-llm-project
+  kind: child
+  order: 3
+  name: Gleaning the General Intellect
+  subtitle: Local language models for the humanities
+  years: 2026–
+  institutions: the AI Studio at Davis Library, UNC
+  description: Developing AI workflows that run locally, on open-source models, for humanities research and teaching.
+  imageNote: diagram of the workflow
+  imageAlt: A schematic of a local language-model workflow, with numbered parts for documents, a model, and output, all inside one dashed boundary
+
+- id: carolina-seminar
+  kind: seminar
+  order: 4
+  name: Carolina Seminar in Critical Game Studies
+  role: Primary Convener
+  years: 2023–
+  institutions: UNC, Duke, King's College London
+  description: The seminar builds community across disciplines, hosting work in progress by leading scholars, faculty conveners, and graduate students, with an emphasis on exploring design as a research method.
+  imageNote: event posters
+  imageAlt: A grid of eight posters for Carolina Seminar sessions, including talks on queergaming, design traces, GPU shaders, gender in the magic mirror, and inclusive tabletop design
+  events:
+    # Checked against the seminar's Meetings and Events Overviews for 2023–24, 2024–25 and 2025–26.
+    # Session types, one of six:
+    #   invited lecture     a public lecture by a visiting speaker
+    #   methods workshop    a visiting speaker's workshop on a research method
+    #   design workshop     a hands-on session on making games
+    #   works-in-progress  a member presenting current research
+    #   discussion session  a convener-led discussion of shared readings or play
+    #   roundtable          several short contributions and open discussion
+    - { date: "Apr 17, 2026", title: "Take a Good Long Look: Gender in the Magic Mirror", speaker: Antonia DiNardo, type: works-in-progress }
+    - { date: "Mar 11, 2026", title: "Recursivity, Repetition, and Race: Building a Methodology for Reading Race in Video Games", speaker: Dr. Austin Anderson, type: invited lecture }
+    - { date: "Feb 27, 2026", title: "Materializing Design Traces // Tracing Design Materials", speaker: Dr. Rilla Khaled, type: invited lecture }
+    - { date: "Feb 13, 2026", title: "“You Were Expected”: Encountering Algorithmic Rememory in *The Outlast Trials*", speaker: Zayla Crocker, type: works-in-progress }
+    - { date: "Nov 13, 2025", title: "Playing to Learn, Learning to Teach: Video Games and the Humanities Classroom", speaker: Dr. Gaspard Pelurson, type: works-in-progress }
+    - { date: "Oct 9, 2025", title: "Annotated Archives: Developing Game Studies Research Tools and Practices", speaker: David Hall, type: works-in-progress }
+    - { date: "Apr 23, 2025", title: Games Life Writing, speaker: Dr. Rob Gallagher, type: methods workshop }
+    - { date: "Apr 22, 2025", title: Self-Narrating Play, speaker: Dr. Rob Gallagher, type: invited lecture }
+    - { date: "Mar 21, 2025", title: Auto-Ethnography and Gaming While Asian, speaker: Dr. Edmond Y. Chang, type: methods workshop }
+    - { date: "Mar 20, 2025", title: "Queergaming, Close Playing, and Gaming Futures", speaker: Dr. Edmond Y. Chang, type: invited lecture }
+    - { date: "Mar 4, 2025", title: "GPU Shaders as Metaphors for, and Materializers of, Experience", speaker: Dr. Kelsey Brod, type: works-in-progress }
+    # The 2024–25 overview dates the three fall sessions 2025: a slip for 2024.
+    - { date: "Nov 19, 2024", title: Gamification and Value Capture, speaker: Dr. Feng Zhu, type: works-in-progress }
+    - { date: "Oct 8, 2024", title: Materiality and Analog Play, speaker: Dr. Steven Gotzler, type: works-in-progress }
+    - { date: "Sep 30, 2024", title: "Playful Pedagogies: Teaching with Games", speaker: "Dr. Michelle Robinson, Dr. Jennifer Gates-Foster, Dr. Kym Weed, David Hall, Antonia DiNardo", type: roundtable }
+    # Not in the 2023–24 overview; Steve confirmed it belongs.
+    - { date: "Apr 11, 2024", title: Digital Ethnography for Game Studies Research, speaker: Dr. Kishonna Gray, type: methods workshop }
+    - { date: "Apr 10, 2024", title: "Augmenting Reality: Black Praxis in Digital Gaming", speaker: Dr. Kishonna Gray, type: invited lecture }
+    - { date: "Apr 4, 2024", title: "*Intersectional Tech: Black Users in Digital Gaming*", speaker: David Hall, type: discussion session }
+    - { date: "Mar 7, 2024", title: Critical Design and Development Reality, speaker: Ernesto Escobar, type: design workshop }
+    - { date: "Nov 28, 2023", title: "Ascesis, Shugyo, and Ethical Self-Cultivation: Gaming as Martial Art?", speaker: Dr. Feng Zhu and Dr. Gaspard Pelurson, type: discussion session }
+    - { date: "Oct 24, 2023", title: Introduction to Unity Engine, speaker: Joyce Rudinsky and Doug Stark, type: design workshop }
+    - { date: "Sep 26, 2023", title: Transdisciplinary Methods, speaker: Dr. Steven Gotzler and Stephanie Kinzinger, type: discussion session }
+    # 2022–23 (no overview for this year).
+    - { date: "Feb 20, 2023", title: Inclusive Design Practices in Tabletop Gaming, speaker: Omari Akil, type: invited lecture + play session }
+
+# ---------------------------------------------------------------------------
+# NOT SHOWN ON THE SITE. The two international partnerships were taken off the
+# Lab page (they belong on the CV and in cover letters). Kept here for reference.
+# ---------------------------------------------------------------------------
+
+- id: unc-kcl-partnership
+  kind: partnership
+  order: 5
+  name: UNC–King's College London Partnership in Critical Game Studies
+  role: Co-organizer
+  years: 2024–
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+  funding: Global Partnership Expansion Award, UNC Global Affairs; two UNC–KCL collaboration grants, Institute for the Arts and Humanities, UNC
+  imageNote: symposium photo or poster
+  imageAlt: A line drawing of an arc joining Chapel Hill and London
+  events:
+    - title: "Studying Games, Writing Play"
+      sessions:
+        - { date: "Apr 22–25, 2025", place: University of North Carolina at Chapel Hill }
+    - title: Transatlantic Exchanges in Game Studies
+      sessions:
+        - { date: "Jun 4–6, 2024", place: King's College London }
+
+- id: unc-tuebingen-partnership
+  kind: partnership
+  order: 6
+  name: UNC–Universität Tübingen Partnership
+  role: Co-organizer
+  years: 2026–
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+  funding: Global Seed Grant, UNC Global Affairs (2026)
+  imageNote: workshop photo or poster
+  imageAlt: A line drawing of an arc joining Chapel Hill and Tübingen
+  events:
+    - title: Sustainable Futures and Playful Media
+      sessions:
+        - { date: "Jul 9–10, 2026", place: Universität Tübingen }
+        - { date: "Sep 21–25, 2026", place: University of North Carolina at Chapel Hill }
+    # The Oct 21–23, 2026 conference "Sustainable Futures at Play" at Tübingen is a separate event (see the talk on the Research page), not part of this pair.

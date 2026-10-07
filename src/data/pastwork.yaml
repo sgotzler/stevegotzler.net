@@ -1,0 +1,40 @@
+- id: marxdown
+  order: 1
+  title: MARXdown
+  years: 2018–19
+  type: Digital Reading Edition
+  collaborators: [Avery J. Wiscomb]
+  description: A minimal reading edition of Marx's *Capital* Vol. 1, with community annotation.
+  link: https://marxdown.github.io/
+  linkLabel: marxdown.github.io
+  repo: https://github.com/MARXdown/MARXdown.github.io
+  funding: Digital Humanities Start-Up Grant, dSHARP, Carnegie Mellon University (2018)
+  imageNote: pixelated portrait of Marx
+  imageAlt: A heavily pixelated black-and-white portrait of Karl Marx
+
+- id: historical-tv-guide
+  order: 2
+  title: The Historical TV Guide
+  years: 2017–19
+  type: Text Digitization
+  collaborators: [Kathy M. Newman]
+  description: A digitized record of 1950s television listings, built for the distant reading of programming that no longer survives in watchable form.
+  link: https://sgotzler.github.io/Historical-TV-Guide/
+  linkLabel: sgotzler.github.io/Historical-TV-Guide
+  repo: https://github.com/sgotzler/megaText
+  funding: A.W. Mellon Digital Humanities Seed Grant, Dietrich College, Carnegie Mellon University (2017)
+  imageNote: still from the project video
+  imageAlt: A newspaper television listings page from February 1950, headed On Television, with handwritten notes in the margins
+
+- id: frankenstein-complex
+  order: 3
+  title: The Frankenstein Complex
+  years: "2018"
+  type: Rare Book Exhibit
+  collaborators: [Avery J. Wiscomb, John Quirk]
+  description: A bicentennial exhibit setting the 1818 first edition of *Frankenstein* beside Carnegie Mellon rare holdings in the history of science and archival materials on robotics and AI.
+  link: https://www.cmu.edu/dietrich/english/news/2018/frankenstein-200-posner-center.html
+  linkLabel: exhibit coverage
+  funding: Posner Rare Book Collection Fellowship, Posner Fine Arts Foundation (2018)
+  imageNote: installation photo
+  imageAlt: Poster for The Frankenstein Complex, its title set over a red-tinted grid of film stills of Frankenstein's monster

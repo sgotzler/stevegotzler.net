@@ -1,0 +1,133 @@
+---
+// A small inset carousel. Swipe, scroll, or use the arrows.
+// Shows the numbered images for an entry (id-1, id-2, …), or placeholders until they exist.
+import { Image } from 'astro:assets';
+import Placeholder from './Placeholder.astro';
+import { slidesFor } from '../lib/images';
+
+interface Props {
+  id: string;
+  label: string;
+  count?: number; // number of placeholder slides until real images exist
+  note?: string;
+  alt?: string; // fallback description when a slide has none of its own
+  gallery?: { alt: string; focus?: string }[]; // per-slide description and crop focus
+  ratio?: string; // frame shape, e.g. "3 / 2" or "1"
+  framed?: boolean; // true when the carousel stands alone, outside an image plate
+}
+const { id, label, count: planned = 3, note, alt = '', gallery = [], ratio = '3 / 2', framed = false } = Astro.props;
+const images = slidesFor(id);
+const count = images.length || planned;
+const slides = Array.from({ length: count }, (_, i) => i);
+---
+
+<div
+  class:list={['carousel', { framed }]}
+  style={`--ratio: ${ratio}`}
+  data-carousel
+  role="group"
+  aria-roledescription="carousel"
+  aria-label={`Images: ${label}`}
+>
+  <div class="track" tabindex="0">
+    {
+      slides.map((i) => (
+        <div class="slide" aria-label={`${i + 1} of ${count}`}>
+          {images.length ? (
+            <Image
+              class="figure-img"
+              src={images[i]}
+              alt={gallery[i]?.alt ?? `${alt} (${i + 1} of ${count})`.trim()}
+              style={gallery[i]?.focus ? `object-position: ${gallery[i].focus}` : undefined}
+              widths={[640, 1200]}
+              sizes="(max-width: 44rem) 100vw, 36rem"
+            />
+          ) : (
+            <Placeholder note={`${note ?? ''} (${i + 1} of ${count})`.trim()} />
+          )}
+        </div>
+      ))
+    }
+  </div>
+  <div class="controls mono">
+    <button type="button" data-dir="-1" aria-label="Previous image">←</button>
+    <span class="count" aria-live="polite"><span data-current>1</span> / {count}</span>
+    <button type="button" data-dir="1" aria-label="Next image">→</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((el) => {
+    const track = el.querySelector<HTMLElement>('.track')!;
+    const current = el.querySelector<HTMLElement>('[data-current]')!;
+    const total = track.children.length;
+    const index = () => Math.round(track.scrollLeft / track.clientWidth);
+    el.querySelectorAll<HTMLButtonElement>('button').forEach((btn) =>
+      btn.addEventListener('click', () => {
+        const next = (index() + Number(btn.dataset.dir) + total) % total;
+        track.scrollTo({ left: next * track.clientWidth, behavior: 'smooth' });
+      }),
+    );
+    track.addEventListener('scroll', () => (current.textContent = String(index() + 1)), { passive: true });
+  });
+</script>
+
+<style>
+  .carousel {
+    position: relative;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .carousel.framed {
+    border: 1px solid var(--color-rule);
+  }
+  .track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+  .slide :global(.ph),
+  .slide :global(.figure-img) {
+    aspect-ratio: var(--ratio);
+    width: 100%;
+    border: 0;
+  }
+  .controls {
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    background: var(--color-ground);
+    border: 1px solid var(--color-rule);
+    color: var(--color-meta);
+  }
+  /* Standing alone, the controls sit under the image so they never cover it */
+  .carousel.framed .controls {
+    position: static;
+    justify-content: flex-end;
+    border: 0;
+    border-top: 1px solid var(--color-rule);
+    padding: 0.3rem 0.6rem;
+  }
+  .controls button {
+    background: none;
+    border: 0;
+    padding: 0 0.15rem;
+    font: inherit;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+  .controls button:hover {
+    color: var(--color-section);
+  }
+</style>

@@ -1,0 +1,11 @@
+- id: subject-matter-tabletop
+  kind: podcast
+  order: 1
+  title: "Subject Matter: Table Top"
+  years: 2022–
+  status: 30 episodes
+  description: A podcast about board games and the subject matter that animates them.
+  collaborators: [Jordan Tynes]
+  link: https://www.subjectmattertabletop.org/
+  imageNote: podcast cover art
+  imageAlt: "Subject Matter: Table Top logo, two lime-green dice lettered SM and TT in magenta"

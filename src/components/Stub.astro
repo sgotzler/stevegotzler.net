@@ -1,0 +1,14 @@
+---
+// Placeholder body for pages that are not built yet.
+import { LOREM } from '../lib/text';
+interface Props {
+  heading: string;
+}
+const { heading } = Astro.props;
+---
+
+<header class="page-head">
+  <h1>{heading}</h1>
+  <p class="lede">{LOREM[0].split(',')[0]}.</p>
+  <p class="mono muted" style="margin-top:2rem">This page is not built yet. The design test is on Research.</p>
+</header>

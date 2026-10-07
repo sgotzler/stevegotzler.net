@@ -1,0 +1,133 @@
+---
+// Label font: Inter, included in the site's own files.
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/400-italic.css';
+import '@fontsource/inter/600.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  section?: 'home' | 'research' | 'design' | 'pedagogy' | 'lab'; // the page's colour section
+}
+const { title, section = 'home' } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={site.description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{pageTitle}</title>
+    <script is:inline>
+      // Apply a saved light/dark choice before the page paints.
+      try {
+        const t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+        const l = localStorage.getItem('lede');
+        if (l) document.documentElement.dataset.lede = l;
+        const b = localStorage.getItem('brackets');
+        if (b) document.documentElement.dataset.brackets = b;
+        const p = localStorage.getItem('palette');
+        if (p) document.documentElement.dataset.palette = p;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip mono" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell">
+        <a class="site-name" href="/">{site.name}</a>
+        <nav class="site-nav" aria-label="Primary">
+          {
+            site.nav.map((item) => (
+              <a
+                class="bracket"
+                href={item.href}
+                style={`--nav-color: var(--nav-${item.section})`}
+                aria-current={path === item.href ? 'page' : undefined}
+              >
+                {item.label.toLowerCase()}
+              </a>
+            ))
+          }
+          <button class="bracket" type="button" id="theme-toggle" aria-label="Switch between light and dark">
+            light/dark
+          </button>
+          <button class="bracket" type="button" id="palette-toggle" aria-label="Trial: switch between the Wayfinding and Lecture colour palettes">
+            palette: wayfinding/lecture
+          </button>
+          <button class="bracket" type="button" id="brackets-toggle" aria-label="Trial: show or hide the square brackets around links">
+            brackets: on/off
+          </button>
+          <button class="bracket" type="button" id="lede-toggle" aria-label="Trial: switch the opening line between serif and monospace">
+            lede: serif/mono/small/off
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="shell" data-section={section}>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        {
+          site.footer.map((item) => (
+            <a class="bracket" href={item.href}>
+              <span class="k">{item.key}:</span> {item.text}
+            </a>
+          ))
+        }
+      </div>
+    </footer>
+
+    <script is:inline>
+      // Trial switch for the square brackets around links (temporary).
+      document.getElementById('brackets-toggle')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        root.dataset.brackets = root.dataset.brackets === 'off' ? 'on' : 'off';
+        try {
+          localStorage.setItem('brackets', root.dataset.brackets);
+        } catch {}
+      });
+
+      // Trial switch for the lede's font (temporary).
+      document.getElementById('lede-toggle')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const order = ['serif', 'mono', 'small', 'off'];
+        root.dataset.lede = order[(order.indexOf(root.dataset.lede || 'serif') + 1) % order.length];
+        try {
+          localStorage.setItem('lede', root.dataset.lede);
+        } catch {}
+      });
+
+      // Trial switch between the two colour palettes (temporary).
+      document.getElementById('palette-toggle')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        root.dataset.palette = root.dataset.palette === 'lecture' ? 'wayfinding' : 'lecture';
+        try {
+          localStorage.setItem('palette', root.dataset.palette);
+        } catch {}
+      });
+
+      // Light/dark switch. Dark is the default; light follows the system setting unless chosen here.
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const dark =
+          root.dataset.theme === 'dark' ||
+          (!root.dataset.theme && !matchMedia('(prefers-color-scheme: light)').matches);
+        root.dataset.theme = dark ? 'light' : 'dark';
+        try {
+          localStorage.setItem('theme', root.dataset.theme);
+        } catch {}
+      });
+    </script>
+  </body>
+</html>

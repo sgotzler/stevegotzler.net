@@ -1,0 +1,21 @@
+# Student work for the Pedagogy page. Each entry is a plate with an image carousel.
+# To add images, put files in src/assets/images/ named after the id with a number:
+#   video-essays-1.jpg, video-essays-2.jpg, …   and   game-designs-1.jpg, game-designs-2.jpg, …
+# Until images exist, `slides` sets how many placeholder slides show.
+# Show student work only with the students' consent.
+
+- id: video-essays
+  order: 1
+  title: Video Essays
+  courses: ENGL 257
+  slides: 3
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+  imageNote: stills from student video essays
+
+- id: game-designs
+  order: 2
+  title: Game Designs
+  courses: ENGL 341 · ENGL 168
+  slides: 4
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+  imageNote: photos of finished student games

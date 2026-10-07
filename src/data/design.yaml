@@ -1,0 +1,16 @@
+- id: skydiving-rpg
+  order: 1
+  title: "[Title to come]"
+  form: Art-RPG, rules-lite, built from the early-1990s *Skydiver's Information Manual*
+  status: Finishing, autumn 2026
+  slides: 4
+  imageNote: spreads from the finished game
+
+- id: keep-calm-and-carry-on
+  order: 2
+  title: Keep Calm and Carry On
+  form: Operational war game about the Blitz, without combatants
+  status: In development
+  grounding: "Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*; archival research at the Imperial War Museum"
+  slides: 3
+  imageNote: prototype board or map

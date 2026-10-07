@@ -1,0 +1,72 @@
+# Courses for the Pedagogy page. `featured: true` puts a course in the large layout at the top.
+# Terms are listed oldest first; the last one shows in the plate's meta line.
+
+- id: engl-257
+  order: 1
+  featured: true
+  number: ENGL 257
+  title: Video Games and Narrative Cinema
+  status: taught
+  tag: Spring 2027
+  terms: [Spring 2023, Fall 2023, Spring 2025, Spring 2027]
+  site: https://sgotzler.github.io/ENGL-257/
+  description: |
+    A hands-on gaming course in which students decipher the narrative design of video games while exploring the legacy of cinema in gameplay, and read cinema, in turn, as a ludic and participatory artform.
+
+    We approach games and films through three frameworks: as media technologies, visual cultures, and narrative forms. The course ends with student video essays.
+  imageAlt: The course website for Video Games and Narrative Cinema, its lead image, a street scene from a video game, shifting from grey into colour
+
+- id: engl-341
+  order: 2
+  number: ENGL 341
+  title: Tabletop Games
+  subtitle: Narrative, History, and Design
+  status: taught
+  terms: [Fall 2025, Fall 2026]
+  site: https://sgotzler.github.io/ENGL-341/
+  description: Treats tabletop games as cultural objects with histories, meanings, and consequences, through their material histories, their narrative affordances, and the practice of design.
+  imageAlt: The course website for Tabletop Games, with a photograph of hands moving pieces on a gridded game board
+
+- id: engl-168
+  order: 3
+  number: ENGL 168
+  title: Games and Literature
+  status: taught
+  terms: [Spring 2024, Fall 2024, Fall 2026]
+  site: https://sgotzler.github.io/ENGL-168/
+  description: Part hands-on gaming studio, part literature seminar. Students play and craft role-playing games alongside readings in fantasy, horror, and detective fiction.
+  imageAlt: The course website for Games and Literature, with a stylised rose emblem
+
+- id: engl-148
+  order: 4
+  row: trio
+  number: ENGL 148
+  title: Horror Fiction
+  status: taught
+  terms: [Summer 2023, Summer 2024, Summer 2025, Summer 2026]
+  description: Zombies, vampires, and ghost stories. What is it that frightens you most, and why? This course examines the complexities and pleasures of horror, from its origins in Gothic literature up to the present day.
+  imageNote: horror image to come
+  imageAlt: Course flyer for Horror Fiction, its title in red above a vintage illustration of two huge eyes staring out of the dark
+
+# Placeholder for a second sample course: a graduate-level game studies seminar, still to be written.
+- id: grad-game-studies
+  order: 5
+  row: trio
+  title: "[Graduate seminar in game studies]"
+  status: proposed
+  tag: Proposed
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+  imageNote: graduate game studies course
+
+# Proposed course: clearly labelled as proposed and never numbered. Title is not final.
+- id: dh-history-and-methods
+  order: 6
+  row: trio
+  title: Digital Humanities
+  subtitle: History and Methods
+  status: proposed
+  tag: Proposed
+  site: https://sgotzler.github.io/dh-course-site/
+  siteLabel: sample course site
+  description: How do digital technologies shape how we make and share knowledge? This course asks how AI is transforming research, how computation shapes culture, and how to build durable architectures of knowledge with less.
+  imageAlt: The sample course website for Digital Humanities, History and Methods

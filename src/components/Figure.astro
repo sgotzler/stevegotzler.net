@@ -1,0 +1,34 @@
+---
+// An entry's image, or a placeholder until the file exists in src/assets/images.
+import { Image } from 'astro:assets';
+import Placeholder from './Placeholder.astro';
+import { imageFor, markFor } from '../lib/images';
+
+interface Props {
+  id: string;
+  alt?: string;
+  note?: string;
+  focus?: string; // CSS object-position, for images cropped by their frame
+  lineArt?: boolean; // black-on-white drawing
+}
+const { id, alt = '', note, focus, lineArt = false } = Astro.props;
+const img = imageFor(id);
+const mark = markFor(id);
+---
+
+{
+  mark ? (
+    <div class="ph mark" role="img" aria-label={alt} set:html={mark} />
+  ) : img ? (
+    <Image
+      class:list={['figure-img', { 'line-art': lineArt }]}
+      src={img}
+      alt={alt}
+      style={focus ? `object-position: ${focus}` : undefined}
+      widths={[480, 800, 1200]}
+      sizes="(max-width: 44rem) 100vw, 34rem"
+    />
+  ) : (
+    <Placeholder note={note} />
+  )
+}

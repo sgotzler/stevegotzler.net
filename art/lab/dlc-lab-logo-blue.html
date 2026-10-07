@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DLC Lab logo, blue scheme</title>
+<!-- The lab's stacked logo (DLC / Digital Literacy and Communications / LAB), recoloured from green and gold
+     to Carolina blue, white and navy, and set in a 4:3 frame for the Lab page. Screenshot at 1200 × 900. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  .logo { position: relative; width: 1200px; height: 900px; background: #4B9CD3; overflow: hidden;
+          display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  svg { position: absolute; left: 0; top: 0; }
+  .word { position: relative; margin: 0; font-family: 'League Spartan', sans-serif; font-weight: 700;
+          font-size: 330px; line-height: .86; letter-spacing: .01em; color: #FFFFFF;
+          text-shadow: 0 8px 28px rgba(19, 41, 75, .35); }
+  .sub { position: relative; font-family: 'Libre Baskerville', Georgia, serif; font-size: 50px; color: #13294B;
+         margin: 6px 0 26px; }
+</style>
+</head>
+<body>
+<div class="logo">
+  <svg width="1200" height="900" viewBox="0 0 1200 900" aria-hidden="true">
+    <defs>
+      <pattern id="a" width="42" height="42" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect x="0" y="0" width="1.6" height="42" fill="#FFFFFF"></rect>
+        <rect x="14" y="0" width="1.2" height="42" fill="#13294B" opacity=".55"></rect>
+      </pattern>
+      <pattern id="b" width="42" height="42" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+        <rect x="0" y="0" width="1.6" height="42" fill="#FFFFFF"></rect>
+        <rect x="14" y="0" width="1.2" height="42" fill="#13294B" opacity=".55"></rect>
+      </pattern>
+    </defs>
+    <g opacity=".8">
+      <polygon points="0,0 520,0 0,470" fill="url(#a)"></polygon>
+      <polygon points="0,0 440,0 0,400" fill="url(#b)"></polygon>
+      <polygon points="1200,900 660,900 1200,410" fill="url(#a)"></polygon>
+      <polygon points="1200,900 740,900 1200,480" fill="url(#b)"></polygon>
+    </g>
+  </svg>
+  <div class="word">DLC</div>
+  <div class="sub">Digital Literacy and Communications</div>
+  <div class="word">LAB</div>
+</div>
+</body>
+</html>

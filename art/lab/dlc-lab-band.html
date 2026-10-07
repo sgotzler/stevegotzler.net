@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DLC Lab band, Carolina blue</title>
+<!-- Source for the DLC Lab image on the Lab page. Open in a browser and screenshot at 1200 × 900.
+     Reworked from the earlier navy version: Carolina blue ground, navy lettering, white hatching. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  .band { position: relative; width: 1200px; height: 900px; background: #4B9CD3; overflow: hidden;
+          display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; }
+  svg { position: absolute; left: 0; top: 0; }
+  h1 { position: relative; margin: 0; font-family: 'League Spartan', sans-serif; font-weight: 700;
+       font-size: 190px; line-height: .9; letter-spacing: .01em; color: #13294B; }
+  span { position: relative; font-family: 'Libre Baskerville', Georgia, serif; font-size: 44px; color: #13294B; }
+</style>
+</head>
+<body>
+<div class="band">
+  <svg width="1200" height="900" viewBox="0 0 1200 900" aria-hidden="true">
+    <defs>
+      <pattern id="hatchA" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect x="0" y="0" width="1.6" height="34" fill="#FFFFFF"></rect>
+        <rect x="7" y="0" width="1.6" height="34" fill="#FFFFFF"></rect>
+      </pattern>
+      <pattern id="hatchB" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+        <rect x="0" y="0" width="1.6" height="34" fill="#FFFFFF"></rect>
+        <rect x="7" y="0" width="1.6" height="34" fill="#FFFFFF"></rect>
+      </pattern>
+      <pattern id="hatchC" width="50" height="50" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect x="0" y="0" width="1.2" height="50" fill="#13294B"></rect>
+      </pattern>
+    </defs>
+    <g opacity=".85">
+      <polygon points="0,0 430,0 110,900 0,900" fill="url(#hatchA)"></polygon>
+      <polygon points="0,0 340,0 40,900 0,900" fill="url(#hatchB)"></polygon>
+      <polygon points="430,0 500,0 180,900 110,900" fill="url(#hatchC)" opacity=".55"></polygon>
+      <polygon points="1200,140 1200,900 860,900" fill="url(#hatchA)"></polygon>
+      <polygon points="1200,320 1200,900 950,900" fill="url(#hatchB)"></polygon>
+      <polygon points="1200,0 1200,140 860,900 790,900" fill="url(#hatchC)" opacity=".55"></polygon>
+    </g>
+  </svg>
+  <h1>DLC LAB</h1>
+  <span>Digital Literacy and Communications</span>
+</div>
+</body>
+</html>

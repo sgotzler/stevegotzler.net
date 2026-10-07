@@ -1,0 +1,141 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Carousel from '../components/Carousel.astro';
+import Figure from '../components/Figure.astro';
+import { inline } from '../lib/text';
+
+const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b.data.order);
+const studentWork = (await getCollection('studentwork')).sort((a, b) => a.data.order - b.data.order);
+const featured = courses.filter((c) => c.data.featured);
+const others = courses.filter((c) => !c.data.featured);
+const blocks = [
+  { cls: 'two', items: others.filter((c) => c.data.row === 'pair') },
+  { cls: 'wide', items: others.filter((c) => c.data.row === 'trio') },
+];
+const host = (url: string) => url.replace('https://', '').replace(/\/$/, '');
+const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
+---
+
+<Base title="Pedagogy" section="pedagogy">
+  <header class="page-head">
+    <h1>Pedagogy</h1>
+    <p class="lede wide">I teach close reading and critical play, <br />and the design practices they motivate.</p>
+    <nav class="page-index mono" aria-label="On this page">
+      <a href="#courses"><span class="n">01</span>Courses</a>
+      <a href="#student-work"><span class="n">02</span>Student Work</a>
+    </nav>
+  </header>
+
+  <section class="section" id="courses">
+    <div class="section-head">
+      <span class="n">01</span>
+      <h2>Courses</h2>
+    </div>
+
+    {
+      featured.map((c) => (
+        <article class="feature" id={c.id}>
+          <Figure id={c.id} alt={c.data.imageAlt} note={c.data.imageNote} />
+          <div>
+            <p class="kicker">
+              {c.data.number}
+              {c.data.tag && <span class="tag now">{c.data.tag}</span>}
+            </p>
+            <h3 set:html={inline(c.data.title)} />
+            {c.data.subtitle && <p class="sub" set:html={inline(c.data.subtitle)} />}
+            <div class="body">
+              {paragraphs(c.data.description).map((p) => (
+                <p set:html={inline(p)} />
+              ))}
+            </div>
+            <dl class="fields">
+              {c.data.terms.length > 0 && (
+                <>
+                  <dt>Taught</dt>
+                  <dd>{c.data.terms.join(', ')}</dd>
+                </>
+              )}
+              {c.data.site && (
+                <>
+                  <dt>Visit</dt>
+                  <dd>
+                    <a href={c.data.site}>{c.data.siteLabel ?? host(c.data.site)}</a>
+                  </dd>
+                </>
+              )}
+            </dl>
+          </div>
+        </article>
+      ))
+    }
+
+    {
+      blocks.map((block) => (
+        <div class:list={['catalogue', block.cls]} style="margin-top: 1.75rem">
+          {block.items.map((c) => (
+              <article class="plate project" id={c.id}>
+                <Figure id={c.id} alt={c.data.imageAlt} note={c.data.imageNote} />
+                <div class="inner">
+                  <div class="plate-meta">
+                    <span>{c.data.number ?? 'Sample syllabus'}</span>
+                    <span>{c.data.tag ? <span class="tag">{c.data.tag}</span> : c.data.terms.at(-1)}</span>
+                  </div>
+                  <h3 class="plate-title" set:html={inline(c.data.title)} />
+                  {c.data.subtitle && <p class="plate-sub" set:html={inline(c.data.subtitle)} />}
+                  <p class="desc" set:html={inline(c.data.description)} />
+                  <dl class="fields">
+                    {c.data.terms.length > 0 && (
+                      <>
+                        <dt>Taught</dt>
+                        <dd>{c.data.terms.join(', ')}</dd>
+                      </>
+                    )}
+                    {c.data.site && (
+                      <>
+                        <dt>Visit</dt>
+                        <dd>
+                          <a href={c.data.site}>{c.data.siteLabel ?? host(c.data.site)}</a>
+                        </dd>
+                      </>
+                    )}
+                  </dl>
+                </div>
+              </article>
+          ))}
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="section" id="student-work">
+    <div class="section-head">
+      <span class="n">02</span>
+      <h2>Student Work</h2>
+    </div>
+    <div class="catalogue two">
+      {
+        studentWork.map((w) => (
+          <article class="plate project" id={w.id}>
+            <Carousel id={w.id} count={w.data.slides} alt={w.data.imageAlt} note={w.data.imageNote} label={w.data.title} />
+            <div class="inner">
+              <div class="plate-meta">
+                <span>{w.data.courses}</span>
+              </div>
+              <h3 class="plate-title" set:html={inline(w.data.title)} />
+              <p class="desc" set:html={inline(w.data.description)} />
+              {w.data.link && (
+                <dl class="fields">
+                  <dt>Watch</dt>
+                  <dd>
+                    <a href={w.data.link}>{w.data.linkLabel ?? host(w.data.link)}</a>
+                  </dd>
+                </dl>
+              )}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,43 @@
+---
+// Compact line linking a project to its talks and publications in the catalogue.
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entries: CollectionEntry<'writing'>[];
+}
+const { entries } = Astro.props;
+const label = (e: CollectionEntry<'writing'>) => e.data.short ?? e.data.venue;
+const talks = entries.filter((e) => e.data.kind === 'talk');
+const pubs = entries.filter((e) => e.data.kind === 'publication');
+---
+
+{
+  pubs.length > 0 && (
+    <>
+      <dt>Published in</dt>
+      <dd>
+        {pubs.map((e, i) => (
+          <>
+            {i > 0 && ', '}
+            <a href={`#${e.id}`}>{label(e)}</a>
+          </>
+        ))}
+      </dd>
+    </>
+  )
+}
+{
+  talks.length > 0 && (
+    <>
+      <dt>Presented at</dt>
+      <dd>
+        {talks.map((e, i) => (
+          <>
+            {i > 0 && ', '}
+            <a href={`#${e.id}`}>{label(e)}</a>
+          </>
+        ))}
+      </dd>
+    </>
+  )
+}

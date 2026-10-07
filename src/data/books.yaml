@@ -1,0 +1,42 @@
+- id: working-models
+  kind: book
+  order: 1
+  title: Working Models
+  subtitle: Computation, Labor, and the Procedures of Play
+  status: In development
+  # Two short paragraphs, separated by a blank line: what the book covers, then its argument.
+  description: |
+    A study of how games model work. The book examines cases across analog and digital games, from the managerial arithmetic of worker placement mechanics, through logistics simulators in which automating work only produces more of it, to the financial energetics of historical railroad games, and character creation systems that render the labor of self-invention as a computable object.
+
+    The same operations that make work tedious can often make play absorbing. The book explores how games can make the organization of work legible even as they habituate us to its demands.
+  imageNote: 18XX components (board, share certificates, train cards)
+  imageAlt: Yellow wooden worker pieces standing on the department board of the board game Carnegie
+  imageFocus: "50% 50%"
+
+- id: terminal-degree
+  kind: book
+  order: 2
+  title: Terminal Degree
+  subtitle: Computing and the End of the Public University
+  status: Manuscript in preparation
+  # Two short paragraphs, separated by a blank line: what the book covers, then its argument.
+  description: |
+    A history of computing and the public university since the Cold War. It traces how universities built the computing industry, reorganized themselves around it, and now face AI tools that threaten to replace the institutions that produced their training data.
+
+    Computing, the book argues, has been both the university's terminal achievement and the grounds of its potential termination.
+  press: Johns Hopkins University Press, series in Critical University Studies (under contract)
+  collaborators: [Avery J. Wiscomb]
+  imageNote: archival photo of university computing
+  imageAlt: A page headed General Description from a 1983 computer service manual, with a labelled line drawing of a desktop computer, monitor, and keyboard
+  lineArt: true
+
+# Companion piece to Terminal Degree; sits directly beneath it. Details to come.
+- id: re-tool-kit
+  kind: paired
+  order: 3
+  pairedWith: terminal-degree
+  title: Re-Tool Kit
+  imageAlt: A simple drawing of a terminal window with a command prompt
+  status: Digital supplement, launching with the book
+  description: An online companion to *Terminal Degree*, with practical guides and resources for scholars and graduate students putting the book's strategies to work.
+  collaborators: [Avery J. Wiscomb]

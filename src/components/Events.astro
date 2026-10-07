@@ -1,0 +1,76 @@
+---
+import { inline } from '../lib/text';
+
+// A list of events. Folded away behind a control by default, or shown outright.
+// An event with `sessions` shows its title once, then a row of date and place for each session.
+interface Session {
+  date: string;
+  place?: string;
+}
+interface Event {
+  date?: string;
+  title: string;
+  speaker?: string;
+  type?: string;
+  place?: string;
+  sessions?: Session[];
+}
+interface Props {
+  events: Event[];
+  folded?: boolean; // false shows the list outright, with no control
+}
+const { events, folded = true } = Astro.props;
+const detail = (e: Event) => [e.speaker, e.type, e.place].filter(Boolean).join(' · ');
+---
+
+{
+  events.length > 0 && (
+    <Fragment>
+      {folded ? (
+        <details class="events">
+          <summary>
+            <span class="show">show events</span>
+            <span class="hide">hide events</span>
+          </summary>
+          <ol>
+            {events.map((e) => (
+              <li>
+                <span class="when">{e.date}</span>
+                <span>
+                  <Fragment set:html={inline(e.title)} />
+                  {detail(e) && <span class="who">{detail(e)}</span>}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </details>
+      ) : (
+        <div class="events open">
+          <ol>
+            {events.map((e) =>
+              e.sessions ? (
+                <Fragment>
+                  <li class="group-title">{e.title}</li>
+                  {e.sessions.map((s) => (
+                    <li class="session">
+                      <span class="when">{s.date}</span>
+                      <span class="where">{s.place}</span>
+                    </li>
+                  ))}
+                </Fragment>
+              ) : (
+                <li>
+                  <span class="when">{e.date}</span>
+                  <span>
+                    <Fragment set:html={inline(e.title)} />
+                    {detail(e) && <span class="who">{detail(e)}</span>}
+                  </span>
+                </li>
+              ),
+            )}
+          </ol>
+        </div>
+      )}
+    </Fragment>
+  )
+}
