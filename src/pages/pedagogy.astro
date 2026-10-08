@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import PageMark from '../components/PageMark.astro';
 import Carousel from '../components/Carousel.astro';
 import Figure from '../components/Figure.astro';
 import { inline } from '../lib/text';
@@ -19,6 +20,7 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
 
 <Base title="Pedagogy" section="pedagogy">
   <header class="page-head">
+    <PageMark section="pedagogy" />
     <h1>Pedagogy</h1>
     <nav class="page-index mono" aria-label="On this page">
       <a href="#courses"><span class="n">01</span>Courses</a>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import PageMark from '../components/PageMark.astro';
 import Events from '../components/Events.astro';
 import Figure from '../components/Figure.astro';
 import { inline } from '../lib/text';
@@ -15,6 +16,7 @@ const kicker = (d: { role?: string; years?: string }) => [d.role, d.years].filte
 
 <Base title="Lab" section="lab">
   <header class="page-head">
+    <PageMark section="lab" />
     <h1>Lab</h1>
     <nav class="page-index mono" aria-label="On this page">
       <a href="#lab"><span class="n">01</span>DLC Lab</a>

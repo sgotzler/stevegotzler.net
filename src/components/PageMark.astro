@@ -1,0 +1,28 @@
+---
+// A page's own action space from the worker placement mark on About: the same icon, in the page's colour.
+// Decorative: the page label beside it already names the page.
+interface Props {
+  section: 'research' | 'pedagogy' | 'lab';
+}
+const { section } = Astro.props;
+const icons = {
+  research: '<path d="M-7 -5h14M-7 0h14M-7 5h9"/>',
+  pedagogy:
+    '<path d="M-5.8 -4.2h11.6c2.3 0 3.5 1.6 3.8 4.1l.6 4.3c.3 2-2 2.8-3.1 1.1l-1.6-2.4h-11l-1.6 2.4c-1.1 1.7-3.4.9-3.1-1.1l.6-4.3c.3-2.5 1.5-4.1 3.8-4.1z"/><path d="M-5.6 -.2h3.2M-4 -1.8v3.2" stroke-width="1.1"/><circle cx="3.2" cy=".5" r=".85" fill="currentColor" stroke="none"/><circle cx="5.3" cy="-1.3" r=".85" fill="currentColor" stroke="none"/>',
+  lab: '<rect x="-9" y="-7.5" width="18" height="15" rx="1.5"/><path d="M-5.5 -3l3.5 3-3.5 3M0 3.5h5"/>',
+};
+---
+
+<svg
+  class="page-mark"
+  viewBox="-15 -18 30 36"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <rect x="-14" y="-17" width="28" height="34" rx="4"></rect>
+  <g class="icon" stroke-width="1.3" set:html={icons[section]} />
+</svg>

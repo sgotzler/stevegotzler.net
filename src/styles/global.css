@@ -697,17 +697,24 @@ button.bracket {
   }
 }
 
-/* About: two parallel blocks divided by a vertical rule; the bio on the left, CV and email on the right */
+/* About: two parallel blocks divided by a vertical rule. Left: the page label, lede and bio.
+   Right: the mark at the top, CV and email at the foot, so the two blocks are the same height. */
 .about {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
-  padding-bottom: clamp(3rem, 7vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
+  padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(3rem, 7vw, 5rem);
 }
-.about-body {
+.about .page-head {
+  padding: 0 0 1.75rem;
+}
+.about-main {
   padding-right: clamp(1.25rem, 4vw, 3.5rem);
 }
 .about-body p + p {
   margin-top: 1em;
+}
+.about-body p {
+  text-wrap: pretty; /* no single word left alone on a last line */
 }
 .about-body {
   font-size: 1rem; /* the same size and leading as the feature descriptions on the other pages */
@@ -722,11 +729,12 @@ button.bracket {
   color: var(--color-section);
 }
 .about-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
   border-left: 1px solid var(--color-rule);
   padding-left: clamp(1.25rem, 4vw, 3.5rem);
-}
-.about-mark {
-  margin-bottom: 1.5rem;
 }
 .about-mark svg {
   display: block;
@@ -738,7 +746,7 @@ button.bracket {
   .about {
     grid-template-columns: 1fr;
   }
-  .about-body {
+  .about-main {
     padding-right: 0;
   }
   .about-side {
@@ -755,4 +763,20 @@ button.bracket {
 /* The first section sits closer to the page head than sections sit to each other */
 .page-head + .section {
   margin-top: 0;
+}
+
+/* A page's own action space from the About mark, at the right of the page head */
+.page-head {
+  position: relative;
+}
+.page-mark {
+  position: absolute;
+  right: 0;
+  top: clamp(2.5rem, 7vw, 5rem);
+  width: 3.75rem;
+  height: auto;
+  color: var(--color-text);
+}
+.page-mark .icon {
+  color: var(--color-section);
 }

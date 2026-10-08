@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import PageMark from '../components/PageMark.astro';
 import Carousel from '../components/Carousel.astro';
 import Feature from '../components/Feature.astro';
 import Figure from '../components/Figure.astro';
@@ -36,6 +37,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
 
 <Base title="Research" section="research">
   <header class="page-head">
+    <PageMark section="research" />
     <h1>Research</h1>
     <nav class="page-index mono" aria-label="On this page">
       {
