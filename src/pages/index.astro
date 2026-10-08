@@ -36,7 +36,7 @@ const cvName = site.cv.split('/').pop();
     </div>
 
     <div class="about-side">
-      <div class="about-mark" role="img" aria-label="A diagram of worker placement. Three workers wait in a supply; a fourth has been placed on the last of four action spaces. The first three spaces stand for the Research, Pedagogy and Lab pages, and the placed worker for this page." set:html={mark} />
+      <div class="about-mark" set:html={mark} />
       <dl class="fields">
       <dt>CV</dt>
       <dd><a href={site.cv}>{cvName}</a></dd>

@@ -741,6 +741,21 @@ button.bracket {
   width: 100%;
   height: auto;
 }
+/* The three page spaces are links: on hover or focus the space takes its page's colour, as its nav label does */
+.about-mark a {
+  color: var(--color-text);
+}
+.about-mark a > rect {
+  transition: stroke 0.15s;
+}
+.about-mark a:hover > rect,
+.about-mark a:focus-visible > rect {
+  stroke: var(--c);
+}
+.about-mark a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
 /* On a narrow screen the blocks stack, and the rule turns to lie between them */
 @media (max-width: 36rem) {
   .about {
