@@ -274,3 +274,22 @@
              moss 5.3/4.8 · slate 5.6/5.0 · plum 6.1/5.5 · rose 5.7/5.2 · brick 5.4/4.9
    Pale gold vs body text is ~1.1:1 — separate by weight, not color alone.
    -------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------
+   Added after the kit: home / About takes blush as its own section colour
+   (rose on Paper), and the site name in the header turns that colour on hover.
+   -------------------------------------------------------------------------- */
+:root { --nav-home: var(--blush); }
+[data-palette="lecture"] { --nav-home: var(--honey); }
+[data-palette="wayfinding"] [data-section="home"],
+:root:not([data-palette]) [data-section="home"] { --color-section: var(--blush); }
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) { --nav-home: var(--rose); }
+  :root[data-palette="lecture"]:not([data-theme="dark"]) { --nav-home: var(--ochre); }
+  :root:not([data-theme="dark"]):not([data-palette="lecture"]) [data-section="home"] { --color-section: var(--rose); }
+}
+:root[data-theme="light"]:not([data-palette="lecture"]) { --nav-home: var(--rose); }
+:root[data-palette="lecture"][data-theme="light"] { --nav-home: var(--ochre); }
+:root[data-theme="light"]:not([data-palette="lecture"]) [data-section="home"] { --color-section: var(--rose); }

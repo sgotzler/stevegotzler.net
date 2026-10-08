@@ -143,7 +143,7 @@ button.bracket:hover {
   color: var(--color-text);
 }
 .site-name:hover {
-  color: var(--color-section);
+  color: var(--nav-home, var(--color-section));
 }
 .site-nav {
   display: flex;
@@ -199,35 +199,6 @@ button.bracket {
   max-width: 24ch;
   text-wrap: balance;
 }
-/* Trial switch: the lede set in the monospace (a little smaller, since monospace letters are wider) */
-:root[data-lede='mono'] .page-head .lede {
-  font-family: var(--label);
-  font-size: clamp(1.25rem, 2.9vw, 2.05rem);
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-}
-
-/* Trial switch, third state: the lede small and spare in the monospace, a modest summary line */
-:root[data-lede='small'] .page-head .lede {
-  font-family: var(--label);
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  letter-spacing: 0;
-  max-width: none;
-}
-/* At this size the lede runs on one line where there is room */
-:root[data-lede='small'] .page-head .lede br {
-  display: none;
-}
-
-/* Trial switch, fourth state: no lede at all; the page label and index stand alone */
-:root[data-lede='off'] .page-head .lede {
-  display: none;
-}
-:root[data-lede='off'] .page-head .page-index {
-  margin-top: 0;
-}
-
 /* A lede with its own line break, given room for a longer second line */
 .page-head .lede.wide {
   max-width: 44ch;
@@ -238,6 +209,10 @@ button.bracket {
   flex-wrap: wrap;
   gap: 0.4rem 1.5rem;
   margin-top: 2rem;
+}
+/* On pages with no lede, the index sits straight under the page label */
+.page-head h1 + .page-index {
+  margin-top: 0;
 }
 .page-index a {
   text-decoration: none;
@@ -772,4 +747,9 @@ button.bracket {
   .about {
     grid-template-columns: 1fr;
   }
+}
+
+/* The first section sits closer to the page head than sections sit to each other */
+.page-head + .section {
+  margin-top: 0;
 }

@@ -29,8 +29,6 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
       try {
         const t = localStorage.getItem('theme');
         if (t) document.documentElement.dataset.theme = t;
-        const l = localStorage.getItem('lede');
-        if (l) document.documentElement.dataset.lede = l;
         const b = localStorage.getItem('brackets');
         if (b) document.documentElement.dataset.brackets = b;
         const p = localStorage.getItem('palette');
@@ -65,9 +63,6 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
           <button class="bracket" type="button" id="brackets-toggle" aria-label="Trial: show or hide the square brackets around links">
             brackets: on/off
           </button>
-          <button class="bracket" type="button" id="lede-toggle" aria-label="Trial: switch the opening line between serif and monospace">
-            lede: serif/mono/small/off
-          </button>
         </nav>
       </div>
     </header>
@@ -95,16 +90,6 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
         root.dataset.brackets = root.dataset.brackets === 'off' ? 'on' : 'off';
         try {
           localStorage.setItem('brackets', root.dataset.brackets);
-        } catch {}
-      });
-
-      // Trial switch for the lede's font (temporary).
-      document.getElementById('lede-toggle')?.addEventListener('click', () => {
-        const root = document.documentElement;
-        const order = ['serif', 'mono', 'small', 'off'];
-        root.dataset.lede = order[(order.indexOf(root.dataset.lede || 'serif') + 1) % order.length];
-        try {
-          localStorage.setItem('lede', root.dataset.lede);
         } catch {}
       });
 
