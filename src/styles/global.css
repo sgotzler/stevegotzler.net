@@ -334,7 +334,7 @@ button.bracket {
 }
 .feature.paired .figure-img {
   aspect-ratio: 1;
-  width: min(11rem, 100%);
+  width: min(16rem, 100%); /* a manual page needs more room than a drawn mark to be read */
   justify-self: end;
 }
 .plate.project .figure-img {

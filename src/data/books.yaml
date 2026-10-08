@@ -36,7 +36,8 @@
   order: 3
   pairedWith: terminal-degree
   title: Re-Tool Kit
-  imageAlt: A simple drawing of a terminal window with a command prompt
+  imageAlt: A page headed Assembly and Disassembly from a 1983 computer service manual, with a line drawing of the machine's rear panel and numbered steps for removing it
+  lineArt: true
   status: Digital supplement, launching with the book
   description: An online companion to *Terminal Degree*, with practical guides and resources for scholars and graduate students putting the book's strategies to work.
   collaborators: [Avery J. Wiscomb]
