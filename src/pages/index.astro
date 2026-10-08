@@ -2,15 +2,10 @@
 import Base from '../layouts/Base.astro';
 // The drawn mark, placed inline so it takes the page's ink and accent colours. Candidates are in art/about.
 import mark from '../assets/images/about.svg?raw';
-import { existsSync } from 'node:fs';
 import { site } from '../config/site';
 
-// The CV row shows the file's own name as its link once the PDF is in public/files; until then, "[to come]".
+// The CV row shows the file's own name as its link. The PDF itself goes in public/files.
 const cvName = site.cv.split('/').pop();
-const cvReady = existsSync(`public${site.cv}`);
-
-// The About page: the one page with a lede (the other pages go straight from label to index), then a short bio.
-// FIRST DRAFT, deliberately long: to be cut back.
 ---
 
 <Base section="home">
@@ -22,15 +17,20 @@ const cvReady = existsSync(`public${site.cv}`);
       </header>
       <div class="about-body">
         <p>
-          I am a Teaching Assistant Professor in the Department of English &amp; Comparative Literature at the
-          University of North Carolina at Chapel Hill, where I direct the Digital Literacy and Communications (DLC) Lab
-          and the Critical Game Studies Program. My <a href="/research">research</a> explores historical regimes of
-          labor and work, cultural studies of games and play, and materialist theories of media and technology.
+          I am a Teaching Assistant Professor of English &amp; Comparative Literature at UNC Chapel Hill, where I
+          direct the <a href="/lab">Digital Literacy and Communications (DLC) Lab</a> and the{' '}
+          <a href="https://dlclab.unc.edu/gaming-program/">Critical Game Studies Program</a>. My courses range from horror fiction to tabletop game design, and in most of
+          them students play, dismantle, and build games. I co-host{' '}
+          <a href="/research#podcast"><em>Subject Matter: Table Top</em></a>, a podcast about board games and the
+          subjects they take up, and I build small digital tools, from reading editions to locally hosted language
+          models, on the principle that knowing how our tools work gives us a clearer view of the conditions of our
+          labor.
         </p>
         <p>
-          I grew up in California's high Mojave desert, near Death Valley, and became a banana slug at UC Santa Cruz,
-          where I studied American Studies. I then trained in literary and cultural studies at Carnegie Mellon
-          University, earning my PhD in 2021.
+          I trained in literary and cultural studies at Carnegie Mellon University, where my doctoral work drew
+          together media history, digital humanities, and critical university studies. I grew up in California's high
+          Mojave Desert, east of the Sierra Nevada near Death Valley, and spent my undergraduate years as a banana slug
+          at UC Santa Cruz, majoring in American Studies.
         </p>
       </div>
     </div>
@@ -39,7 +39,7 @@ const cvReady = existsSync(`public${site.cv}`);
       <div class="about-mark" role="img" aria-label="A diagram of worker placement. Three workers wait in a supply; a fourth has been placed on the last of four action spaces. The first three spaces stand for the Research, Pedagogy and Lab pages, and the placed worker for this page." set:html={mark} />
       <dl class="fields">
       <dt>CV</dt>
-      <dd class:list={{ muted: !cvReady }}>{cvReady ? <a href={site.cv}>{cvName}</a> : '[to come]'}</dd>
+      <dd><a href={site.cv}>{cvName}</a></dd>
       <dt>Email</dt>
       <dd><a href="mailto:sgotzler@unc.edu">sgotzler@unc.edu</a></dd>
       </dl>
