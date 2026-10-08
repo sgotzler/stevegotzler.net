@@ -48,25 +48,30 @@
   imageNote: horror image to come
   imageAlt: Course flyer for Horror Fiction, its title in red above a vintage illustration of two huge eyes staring out of the dark
 
-# Placeholder for a second sample course: a graduate-level game studies seminar, still to be written.
-- id: grad-game-studies
-  order: 5
-  row: trio
-  title: "[Graduate seminar in game studies]"
-  status: proposed
-  tag: Proposed
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-  imageNote: graduate game studies course
-
-# Proposed course: clearly labelled as proposed and never numbered. Title is not final.
-- id: dh-history-and-methods
-  order: 6
-  row: trio
-  title: Digital Humanities
-  subtitle: History and Methods
-  status: proposed
-  tag: Proposed
-  site: https://sgotzler.github.io/dh-course-site/
-  siteLabel: sample course site
-  description: How do digital technologies shape how we make and share knowledge? This course asks how AI is transforming research, how computation shapes culture, and how to build durable architectures of knowledge with less.
-  imageAlt: The sample course website for Digital Humanities, History and Methods
+# ---------------------------------------------------------------------------
+# NOT SHOWN ON THE SITE. Courses not yet taught were taken off the Pedagogy page
+# (sample syllabi belong in an application packet, not on a public site).
+# Kept here, commented out, for reference.
+# ---------------------------------------------------------------------------
+# # Placeholder for a second sample course: a graduate-level game studies seminar, still to be written.
+# - id: grad-game-studies
+#   order: 5
+#   row: trio
+#   title: "[Graduate seminar in game studies]"
+#   status: proposed
+#   tag: Proposed
+#   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+#   imageNote: graduate game studies course
+#
+# # Proposed course: clearly labelled as proposed and never numbered. Title is not final.
+# - id: dh-history-and-methods
+#   order: 6
+#   row: trio
+#   title: Digital Humanities
+#   subtitle: History and Methods
+#   status: proposed
+#   tag: Proposed
+#   site: https://sgotzler.github.io/dh-course-site/
+#   siteLabel: sample course site
+#   description: How do digital technologies shape how we make and share knowledge? This course asks how AI is transforming research, how computation shapes culture, and how to build durable architectures of knowledge with less.
+#   imageAlt: The sample course website for Digital Humanities, History and Methods

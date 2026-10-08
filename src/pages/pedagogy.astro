@@ -10,9 +10,12 @@ const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b
 const studentWork = (await getCollection('studentwork')).sort((a, b) => a.data.order - b.data.order);
 const featured = courses.filter((c) => c.data.featured);
 const others = courses.filter((c) => !c.data.featured);
+// The last row holds one course at present, so it runs across the page: image at the left, text beside it.
+// With two or more courses it goes back to side-by-side plates.
+const last = others.filter((c) => c.data.row === 'trio');
 const blocks = [
   { cls: 'two', items: others.filter((c) => c.data.row === 'pair') },
-  { cls: 'wide', items: others.filter((c) => c.data.row === 'trio') },
+  { cls: last.length === 1 ? 'across' : 'wide', items: last },
 ];
 const host = (url: string) => url.replace('https://', '').replace(/\/$/, '');
 const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());

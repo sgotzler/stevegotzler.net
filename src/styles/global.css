@@ -795,3 +795,33 @@ button.bracket {
 .page-mark .icon {
   color: var(--color-section);
 }
+
+/* A single plate run across the page: the image keeps the size it has in a three-across row, the text sits beside it */
+.catalogue.across {
+  grid-template-columns: 1fr;
+}
+.catalogue.across .plate.project {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+}
+.catalogue.across .plate.project .ph,
+.catalogue.across .plate.project .figure-img {
+  height: 100%;
+  border-width: 0 1px 0 0;
+}
+.catalogue.across .plate.project .inner {
+  padding: 1.1rem 1.5rem 1.2rem;
+  align-self: center;
+}
+.catalogue.across .plate.project .desc {
+  max-width: 60ch;
+}
+@media (max-width: 44rem) {
+  .catalogue.across .plate.project {
+    grid-template-columns: 1fr;
+  }
+  .catalogue.across .plate.project .ph,
+  .catalogue.across .plate.project .figure-img {
+    border-width: 0 0 1px;
+  }
+}
