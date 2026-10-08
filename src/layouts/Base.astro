@@ -29,10 +29,6 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
       try {
         const t = localStorage.getItem('theme');
         if (t) document.documentElement.dataset.theme = t;
-        const b = localStorage.getItem('brackets');
-        if (b) document.documentElement.dataset.brackets = b;
-        const p = localStorage.getItem('palette');
-        if (p) document.documentElement.dataset.palette = p;
       } catch {}
     </script>
   </head>
@@ -57,12 +53,6 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
           <button class="bracket" type="button" id="theme-toggle" aria-label="Switch between light and dark">
             light/dark
           </button>
-          <button class="bracket" type="button" id="palette-toggle" aria-label="Trial: switch between the Wayfinding and Lecture colour palettes">
-            palette: wayfinding/lecture
-          </button>
-          <button class="bracket" type="button" id="brackets-toggle" aria-label="Trial: show or hide the square brackets around links">
-            brackets: on/off
-          </button>
         </nav>
       </div>
     </header>
@@ -84,24 +74,6 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
     </footer>
 
     <script is:inline>
-      // Trial switch for the square brackets around links (temporary).
-      document.getElementById('brackets-toggle')?.addEventListener('click', () => {
-        const root = document.documentElement;
-        root.dataset.brackets = root.dataset.brackets === 'off' ? 'on' : 'off';
-        try {
-          localStorage.setItem('brackets', root.dataset.brackets);
-        } catch {}
-      });
-
-      // Trial switch between the two colour palettes (temporary).
-      document.getElementById('palette-toggle')?.addEventListener('click', () => {
-        const root = document.documentElement;
-        root.dataset.palette = root.dataset.palette === 'lecture' ? 'wayfinding' : 'lecture';
-        try {
-          localStorage.setItem('palette', root.dataset.palette);
-        } catch {}
-      });
-
       // Light/dark switch. Dark is the default; light follows the system setting unless chosen here.
       document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const root = document.documentElement;

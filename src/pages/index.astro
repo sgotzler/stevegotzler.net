@@ -2,6 +2,12 @@
 import Base from '../layouts/Base.astro';
 // The drawn mark, placed inline so it takes the page's ink and accent colours. Candidates are in art/about.
 import mark from '../assets/images/about.svg?raw';
+import { existsSync } from 'node:fs';
+import { site } from '../config/site';
+
+// The CV row shows the file's own name as its link once the PDF is in public/files; until then, "[to come]".
+const cvName = site.cv.split('/').pop();
+const cvReady = existsSync(`public${site.cv}`);
 
 // The About page: the one page with a lede (the other pages go straight from label to index), then a short bio.
 // FIRST DRAFT, deliberately long: to be cut back.
@@ -22,26 +28,11 @@ import mark from '../assets/images/about.svg?raw';
         work, cultural studies of games and play, and materialist theories of media and technology.
       </p>
       <p>
-        I am at work on two books. <em>Working Models</em> is a study of how games model work, and of how they can make
-        the organization of work legible even as they habituate us to its demands. <em>Terminal Degree</em>, co-authored
-        with Avery J. Wiscomb and under contract with Johns Hopkins University Press, argues that the university has
-        been at once the source, the customer, and the raw material of the computational systems it helped build.
-      </p>
-      <p>
-        My work in the digital humanities follows minimal computing principles: projects built to be durable,
-        accessible, and sustainable. Those principles shaped MARXdown, a set of online reading editions of Marx's{' '}
-        <em>Capital</em>, and they frame a new project at the <a href="/lab">lab</a> on locally hosted language models,
-        which asks how humanities researchers might build AI workflows on open-weight models and their own hardware
-        rather than on proprietary platforms.
-      </p>
-      <p>
-        I teach close reading and critical play, and the design practices they motivate, in{' '}
-        <a href="/pedagogy">courses</a> at the intersection of literature, film, and game studies.
-      </p>
-      <p>
-        I convene the Carolina Seminar in Critical Game Studies, a research seminar spanning UNC, Duke, and King's
-        College London, and co-host <em>Subject Matter: Table Top</em>, a podcast that approaches board games by playing
-        them with guests who know their themes, settings, and systems deeply.
+        I am at work on two books: <em>Working Models</em>, a study of how games model work, and{' '}
+        <em>Terminal Degree</em>, a history of computing and the public university co-authored with Avery J. Wiscomb. I
+        teach <a href="/pedagogy">courses</a> at the intersection of literature, film, and game studies, convene the
+        Carolina Seminar in Critical Game Studies at the <a href="/lab">lab</a>, and co-host the podcast{' '}
+        <em>Subject Matter: Table Top</em>.
       </p>
     </div>
 
@@ -49,7 +40,7 @@ import mark from '../assets/images/about.svg?raw';
       <div class="about-mark" role="img" aria-label="A diagram of worker placement. Three workers wait in a supply; a fourth has been placed on the last of four action spaces. The first three spaces stand for the Research, Pedagogy and Lab pages, and the placed worker for this page." set:html={mark} />
       <dl class="fields">
       <dt>CV</dt>
-      <dd class="muted">[to come]</dd>
+      <dd class:list={{ muted: !cvReady }}>{cvReady ? <a href={site.cv}>{cvName}</a> : '[to come]'}</dd>
       <dt>Email</dt>
       <dd><a href="mailto:sgotzler@unc.edu">sgotzler@unc.edu</a></dd>
       </dl>

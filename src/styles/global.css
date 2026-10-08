@@ -85,7 +85,7 @@ em {
   padding: 0.25rem 0.5rem;
 }
 
-/* Bracketed links: [key: value] */
+/* Label links in the header and footer. (The class is still called `bracket`: these once had square brackets.) */
 .bracket {
   font-family: var(--label);
   font-size: 0.8125rem;
@@ -93,32 +93,12 @@ em {
   text-decoration: none;
   color: var(--color-text);
 }
-.bracket::before {
-  content: '[';
-  color: var(--color-meta);
-}
-.bracket::after {
-  content: ']';
-  color: var(--color-meta);
-}
 .bracket .k {
   color: var(--color-meta);
 }
 a.bracket:hover,
 button.bracket:hover {
   color: var(--color-section);
-}
-
-/* Trial switch: plain labels without the square brackets */
-:root[data-brackets='off'] .bracket::before,
-:root[data-brackets='off'] .bracket::after {
-  content: none;
-}
-:root[data-brackets='off'] .site-nav {
-  gap: 0.25rem 1.5rem;
-}
-:root[data-brackets='off'] .site-footer .shell {
-  gap: 0.5rem 1.75rem;
 }
 
 /* Header and footer */
@@ -148,7 +128,7 @@ button.bracket:hover {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1rem;
+  gap: 0.25rem 1.5rem;
   align-items: baseline;
 }
 /* Each nav label takes its own section colour when hovered or current; the current page also gets a bar */
@@ -174,7 +154,7 @@ button.bracket {
 .site-footer .shell {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.25rem;
+  gap: 0.5rem 1.75rem;
   padding-top: 1.25rem;
   padding-bottom: 2.5rem;
 }
