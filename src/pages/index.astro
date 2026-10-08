@@ -1,5 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
+// The drawn mark, placed inline so it takes the page's ink and accent colours. Candidates are in art/about.
+import mark from '../assets/images/about.svg?raw';
 
 // The About page: the one page with a lede (the other pages go straight from label to index), then a short bio.
 // FIRST DRAFT, deliberately long: to be cut back.
@@ -43,21 +45,14 @@ import Base from '../layouts/Base.astro';
       </p>
     </div>
 
-    <dl class="fields about-facts">
-      <dt>Position</dt>
-      <dd>Teaching Assistant Professor, English and Comparative Literature, UNC–Chapel Hill</dd>
-      <dt>Education</dt>
-      <dd>
-        PhD, Literary and Cultural Studies, Carnegie Mellon University, 2021<br />
-        MA, Literary and Cultural Studies, Carnegie Mellon University, 2012<br />
-        BA, American Studies, University of California, Santa Cruz
-      </dd>
-      <dt>Office</dt>
-      <dd>Greenlaw 315</dd>
-      <dt>Email</dt>
-      <dd><a href="mailto:sgotzler@unc.edu">sgotzler@unc.edu</a></dd>
+    <div class="about-side">
+      <div class="about-mark" role="img" aria-label="A diagram of worker placement. Three workers wait in a supply; a fourth has been placed on the last of four action spaces. The first three spaces stand for the Research, Pedagogy and Lab pages, and the placed worker for this page." set:html={mark} />
+      <dl class="fields">
       <dt>CV</dt>
       <dd class="muted">[to come]</dd>
-    </dl>
+      <dt>Email</dt>
+      <dd><a href="mailto:sgotzler@unc.edu">sgotzler@unc.edu</a></dd>
+      </dl>
+    </div>
   </div>
 </Base>

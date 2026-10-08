@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" width="1200" height="1000" fill="none" stroke="#141210" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="120" height="100" fill="#F4F0E6" stroke="none"/>
+  <!-- outside the machine: the supply, and what comes back -->
+  <path d="M8 30h18v18h-18z" stroke-dasharray="2 3" opacity=".6" stroke-width="1.2"/>
+  <path transform="translate(8 54) scale(0.9)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" stroke-width="1.8"/>
+
+  <!-- the machine: a window holding three action spaces -->
+  <rect x="40" y="20" width="72" height="70" rx="2"/>
+  <path d="M40 30h72"/>
+  <g fill="#141210" stroke="none"><circle cx="45.5" cy="25" r="1.3"/><circle cx="50.5" cy="25" r="1.3"/><circle cx="55.5" cy="25" r="1.3"/></g>
+  <rect x="46" y="46" width="17" height="28" rx="3" stroke-width="1.3"/>
+  <rect x="67.5" y="46" width="17" height="28" rx="3" stroke-width="1.3"/>
+  <rect x="89" y="46" width="17" height="28" rx="3" stroke-width="1.3"/>
+  <path d="M50 56h9M50 60h9M50 64h6" stroke-width="1" opacity=".7"/>
+  <circle cx="76" cy="60" r="4.5" stroke-width="1" opacity=".7"/>
+  <path transform="translate(91 52) scale(0.65)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" fill="#8C4A57" stroke="none"/>
+
+  <!-- the worker goes in -->
+  <path d="M28 39h66.500q3 0 3 3v1" stroke-width="1.2"/>
+  <path d="M94.5 40.500l3 3.5 3-3.5" stroke-width="1.2"/>
+  <!-- and a resource comes out -->
+  <path d="M97.5 76v6H26" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <path d="M29.5 79l-3.5 3 3.5 3" stroke-width="1.2"/>
+  <rect x="11" y="77" width="10" height="10" fill="#8C4A57" stroke="none"/>
+</svg>

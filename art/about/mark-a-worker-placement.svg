@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- the supply: workers not yet placed -->
+  <path transform="translate(12 10) scale(0.8)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" stroke-width="2"/>
+  <path transform="translate(32 10) scale(0.8)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" stroke-width="2"/>
+  <path d="M52 10h16v16h-16z" stroke-dasharray="2 3" opacity=".6" stroke-width="1.2"/>
+
+  <!-- three action spaces -->
+  <rect x="10" y="56" width="28" height="34" rx="4"/>
+  <rect x="46" y="56" width="28" height="34" rx="4"/>
+  <rect x="82" y="56" width="28" height="34" rx="4"/>
+  <path d="M17 68h14M17 73h14M17 78h9" stroke-width="1" opacity=".7"/>
+  <circle cx="60" cy="73" r="6.5" stroke-width="1" opacity=".7"/>
+  <path d="M60 70v6M57 73h6" stroke-width="1" opacity=".7"/>
+
+  <!-- the worker, placed -->
+  <path transform="translate(87 62) scale(0.9)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" fill="var(--color-section)" stroke="none"/>
+
+  <!-- placement, and what comes back -->
+  <path d="M72 18c16 2 24 14 24 32" stroke-width="1.2"/>
+  <path d="M93 46.5l3 3.5 3-3.5" stroke-width="1.2"/>
+  <path d="M104 52V30" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <path d="M101 33.5l3-3.5 3 3.5" stroke-width="1.2"/>
+  <rect x="99" y="14" width="10" height="10" fill="var(--color-section)" stroke="none"/>
+</svg>

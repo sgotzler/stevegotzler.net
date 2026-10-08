@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <!-- the supply: workers not yet placed -->
+  <path transform="translate(12 10) scale(0.8)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" stroke-width="2"/>
+  <path transform="translate(32 10) scale(0.8)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" stroke-width="2"/>
+  <path d="M52 10h16v16h-16z" stroke-dasharray="2 3" opacity=".6" stroke-width="1.2"/>
+
+  <!-- three action spaces: play, work, and the one being taken -->
+  <rect x="10" y="56" width="28" height="34" rx="4"/>
+  <rect x="46" y="56" width="28" height="34" rx="4"/>
+  <rect x="82" y="56" width="28" height="34" rx="4"/>
+  <g transform="translate(24 73)" stroke-width="1.2" opacity=".85"><rect x="-7" y="-7" width="14" height="14" rx="2.5"/><g fill="currentColor" stroke="none"><circle cx="-3.3" cy="-3.3" r="1.2"/><circle cx="0" cy="0" r="1.2"/><circle cx="3.3" cy="3.3" r="1.2"/></g></g>
+  <g transform="translate(60 73)" stroke-width="1.2" opacity=".85"><circle r="7.5"/><path d="M0 -4.5v4.5l3.2 2"/></g>
+
+  <!-- the worker, dragged into place by a pointer -->
+  <path d="M72 18c13 2 19 12 19 30" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <path transform="translate(85 61) scale(0.9)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" fill="var(--color-section)" stroke="none"/>
+  <path transform="translate(98 72)" d="M0 0v12l3.2-3 2.2 5 2-.9-2.2-4.8h4.300z" fill="var(--color-ground)" stroke-width="1.2"/>
+
+  <!-- what comes back -->
+  <path d="M104 52V32" stroke-width="1.2" stroke-dasharray="2 3"/>
+  <path d="M101 35.5l3-3.5 3 3.5" stroke-width="1.2"/>
+  <rect x="99" y="14" width="10" height="10" fill="var(--color-section)" stroke="none"/>
+</svg>

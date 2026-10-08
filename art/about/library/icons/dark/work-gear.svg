@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 -14 28 28" width="560" height="560" fill="none" stroke="#EDE9E0" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="-14" y="-14" width="28" height="28" fill="#0D0C0A" stroke="none"/>
+  <circle r="2.2"/><circle r="5.2"/><path d="M5.20 0.00L7.80 0.00M3.68 3.68L5.52 5.52M0.00 5.20L0.00 7.80M-3.68 3.68L-5.52 5.52M-5.20 0.00L-7.80 0.00M-3.68 -3.68L-5.52 -5.52M-0.00 -5.20L-0.00 -7.80M3.68 -3.68L5.52 -5.52" stroke-width="2.2" stroke-linecap="butt"/>
+</svg>
