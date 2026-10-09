@@ -34,8 +34,7 @@
 - id: local-llm-project
   kind: child
   order: 3
-  name: Gleaning the General Intellect
-  subtitle: local language models for the humanities
+  name: Local Language Models for the Humanities
   years: 2026–
   institutions: the AI Studio at Davis Library, UNC
   description: Developing AI workflows that run locally, on open-source models, for humanities research and teaching.
