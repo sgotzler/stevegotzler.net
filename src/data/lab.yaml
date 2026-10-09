@@ -35,7 +35,7 @@
   kind: child
   order: 3
   name: Gleaning the General Intellect
-  subtitle: Local language models for the humanities
+  subtitle: local language models for the humanities
   years: 2026–
   institutions: the AI Studio at Davis Library, UNC
   description: Developing AI workflows that run locally, on open-source models, for humanities research and teaching.

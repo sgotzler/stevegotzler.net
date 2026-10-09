@@ -428,8 +428,12 @@ button.bracket {
 }
 .feature.paired .ph {
   aspect-ratio: 1;
-  width: min(11rem, 100%);
+  width: min(16rem, 100%); /* the same frame as a paired image */
   justify-self: end;
+}
+/* A drawn mark fills more of its frame here */
+.feature.paired .ph.mark svg {
+  width: 90%;
 }
 .feature.paired h3 {
   font-size: 1.4rem;
