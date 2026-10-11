@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 // The drawn mark, placed inline so it takes the page's ink and accent colours. Candidates are in art/about.
 import mark from '../assets/images/about.svg?raw';
+// TRIAL: the five-space mark, shown when the temporary "practice" switch is on.
+import markFive from '../assets/images/about-five.svg?raw';
 import { site } from '../config/site';
 
 // The CV row shows the file's own name as its link. The PDF itself goes in public/files.
@@ -36,7 +38,8 @@ const cvName = site.cv.split('/').pop();
     </div>
 
     <div class="about-side">
-      <div class="about-mark" set:html={mark} />
+      <div class="about-mark mark-four" set:html={mark} />
+      <div class="about-mark mark-five" set:html={markFive} />
       <dl class="fields">
       <dt>CV</dt>
       <dd><a href={site.cv}>{cvName}</a></dd>

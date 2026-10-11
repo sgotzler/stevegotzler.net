@@ -705,7 +705,7 @@ button.bracket {
    Right: the mark at the top, CV and email at the foot, so the two blocks are the same height. */
 .about {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 27rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, min(27rem, 42%)); /* the right block never takes more than 42% of a narrow window */
   padding: clamp(2.5rem, 7vw, 5rem) 0 clamp(3rem, 7vw, 5rem);
 }
 .about .page-head {
@@ -828,4 +828,29 @@ button.bracket {
   .catalogue.across .plate.project .figure-img {
     border-width: 0 0 1px;
   }
+}
+
+/* TRIAL (temporary): a fourth page, "Practice". The header switch sets data-practice to d20, board or d6. */
+.practice-only,
+.mark-five {
+  display: none;
+}
+:root[data-practice] .practice-only {
+  display: inline;
+}
+:root[data-practice] .mark-five {
+  display: block;
+}
+:root[data-practice] .mark-four {
+  display: none;
+}
+/* one candidate icon at a time; the twenty-sided die when the switch is off (on the Practice page itself) */
+.practice-icon {
+  display: none;
+}
+:root:not([data-practice]) .practice-icon-d20,
+:root[data-practice='d20'] .practice-icon-d20,
+:root[data-practice='board'] .practice-icon-board,
+:root[data-practice='d6'] .practice-icon-d6 {
+  display: inline;
 }

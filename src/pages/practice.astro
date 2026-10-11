@@ -1,0 +1,69 @@
+---
+// TRIAL: a possible fourth page. The Podcast and Games plates exactly as they appear on Research
+// (they are still on Research too). Reached from the nav and the mark when the header's "practice" switch is on.
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageMark from '../components/PageMark.astro';
+import Carousel from '../components/Carousel.astro';
+import Feature from '../components/Feature.astro';
+import { inline, LOREM } from '../lib/text';
+
+const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) =>
+  a.data.order - b.data.order;
+const podcast = (await getCollection('podcast')).sort(byOrder);
+const design = (await getCollection('design')).sort(byOrder);
+const writing = await getCollection('writing');
+const linkedTo = (id: string) => writing.filter((e) => e.data.linkedTo === id);
+---
+
+<Base title="Practice" section="design">
+  <header class="page-head">
+    <PageMark section="practice" />
+    <h1>Practice</h1>
+    <nav class="page-index mono" aria-label="On this page">
+      <a href="#podcast"><span class="n">01</span>Podcast</a>
+      <a href="#games"><span class="n">02</span>Games</a>
+    </nav>
+  </header>
+
+  <section class="section" id="podcast">
+    <div class="section-head">
+      <span class="n">01</span>
+      <h2>Podcast</h2>
+    </div>
+    {podcast.map((p) => <Feature entry={p} linked={linkedTo(p.id)} />)}
+  </section>
+
+  <section class="section" id="games">
+    <div class="section-head">
+      <span class="n">02</span>
+      <h2>Games</h2>
+    </div>
+    <div class="catalogue two">
+      {
+        design.map((g) => (
+          <article class="plate project" id={g.id}>
+            <Carousel id={g.id} count={g.data.slides} alt={g.data.imageAlt} note={g.data.imageNote} label={g.data.title} />
+            <div class="inner">
+              <div class="plate-meta">
+                <span>{g.data.status}</span>
+              </div>
+              <h3 class="plate-title" set:html={inline(g.data.title)} />
+              <p class="desc">{LOREM[0]}</p>
+              <dl class="fields">
+                <dt>Form</dt>
+                <dd set:html={inline(g.data.form)} />
+                {g.data.grounding && (
+                  <>
+                    <dt>Draws on</dt>
+                    <dd set:html={inline(g.data.grounding)} />
+                  </>
+                )}
+              </dl>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Base>

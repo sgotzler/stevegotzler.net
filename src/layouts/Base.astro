@@ -9,7 +9,7 @@ import { site } from '../config/site';
 
 interface Props {
   title?: string;
-  section?: 'home' | 'research' | 'design' | 'pedagogy' | 'lab'; // the page's colour section
+  section?: 'home' | 'research' | 'design' | 'pedagogy' | 'lab'; // 'design' is the lavender section, used by the trial Practice page // the page's colour section
 }
 const { title, section = 'home' } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -29,6 +29,8 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
       try {
         const t = localStorage.getItem('theme');
         if (t) document.documentElement.dataset.theme = t;
+        const pr = localStorage.getItem('practice');
+        if (pr && pr !== 'off') document.documentElement.dataset.practice = pr;
       } catch {}
     </script>
   </head>
@@ -50,6 +52,18 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
               </a>
             ))
           }
+          {/* TRIAL: a fourth page, shown by the temporary switch below */}
+          <a
+            class="bracket practice-only"
+            href="/practice"
+            style="--nav-color: var(--nav-practice)"
+            aria-current={path === '/practice' ? 'page' : undefined}
+          >
+            practice
+          </a>
+          <button class="bracket" type="button" id="practice-toggle" aria-label="Trial: add a Practice page, and choose its icon">
+            practice: <span id="practice-state">off</span>
+          </button>
           <button class="bracket" type="button" id="theme-toggle" aria-label="Switch between light and dark">
             light/dark
           </button>
@@ -74,6 +88,24 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
     </footer>
 
     <script is:inline>
+      // Trial switch for a fourth page, "Practice" (temporary). Cycles off, then each candidate icon.
+      (() => {
+        const root = document.documentElement;
+        const order = ['off', 'd20', 'board', 'd6'];
+        const label = document.getElementById('practice-state');
+        const show = () => label && (label.textContent = root.dataset.practice || 'off');
+        show();
+        document.getElementById('practice-toggle')?.addEventListener('click', () => {
+          const next = order[(order.indexOf(root.dataset.practice || 'off') + 1) % order.length];
+          if (next === 'off') delete root.dataset.practice;
+          else root.dataset.practice = next;
+          show();
+          try {
+            localStorage.setItem('practice', next);
+          } catch {}
+        });
+      })();
+
       // Light/dark switch. Dark is the default; light follows the system setting unless chosen here.
       document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const root = document.documentElement;
