@@ -1,6 +1,6 @@
 ---
 // TRIAL: a possible fourth page. The Podcast and Games plates exactly as they appear on Research
-// (they are still on Research too). Reached from the nav and the mark when the header's "practice" switch is on.
+// (they are still on Research too). Reached from the nav and the mark when the header's "play page" switch is on.
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageMark from '../components/PageMark.astro';
@@ -16,10 +16,10 @@ const writing = await getCollection('writing');
 const linkedTo = (id: string) => writing.filter((e) => e.data.linkedTo === id);
 ---
 
-<Base title="Practice" section="design">
+<Base title="Play" section="design">
   <header class="page-head">
     <PageMark section="practice" />
-    <h1>Practice</h1>
+    <h1>Play</h1>
     <nav class="page-index mono" aria-label="On this page">
       <a href="#podcast"><span class="n">01</span>Podcast</a>
       <a href="#games"><span class="n">02</span>Games</a>

@@ -55,14 +55,14 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
           {/* TRIAL: a fourth page, shown by the temporary switch below */}
           <a
             class="bracket practice-only"
-            href="/practice"
+            href="/play"
             style="--nav-color: var(--nav-practice)"
-            aria-current={path === '/practice' ? 'page' : undefined}
+            aria-current={path === '/play' ? 'page' : undefined}
           >
-            practice
+            play
           </a>
-          <button class="bracket" type="button" id="practice-toggle" aria-label="Trial: add a Practice page, and choose its icon">
-            practice: <span id="practice-state">off</span>
+          <button class="bracket" type="button" id="practice-toggle" aria-label="Trial: add a Play page, and choose its icon">
+            play page: <span id="practice-state">off</span>
           </button>
           <button class="bracket" type="button" id="theme-toggle" aria-label="Switch between light and dark">
             light/dark

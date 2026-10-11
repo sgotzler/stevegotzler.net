@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" role="group" aria-labelledby="about-mark-title-5" viewBox="0 0 192 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-  <title id="about-mark-title-5">A diagram of worker placement. Four workers wait in a supply; a fifth has been placed on the last of five action spaces. The first four spaces link to the Research, Pedagogy, Lab and Practice pages; the placed worker marks this page.</title>
+  <title id="about-mark-title-5">A diagram of worker placement. Four workers wait in a supply; a fifth has been placed on the last of five action spaces. The first four spaces link to the Research, Pedagogy, Lab and Play pages; the placed worker marks this page.</title>
   <!-- TRIAL: the five-space version of the mark, shown by the temporary "practice" switch -->
   <!-- the supply: workers not yet placed -->
   <path transform="translate(12 10) scale(0.8)" d="M10 0C7 0 5.5 2 5.5 4.5c0 1 .3 1.8.8 2.5C3 8 0 9.5 0 11.5c0 1.5 1.5 2 4.5 2L2 20h6l2-3.5 2 3.5h6l-2.5-6.5c3 0 4.5-.5 4.5-2 0-2-3-3.5-6.3-4.5.5-.7.8-1.5.8-2.5C14.5 2 13 0 10 0z" stroke-width="2"/>
@@ -22,7 +22,7 @@
     <rect x="82" y="56" width="28" height="34" rx="4" fill="transparent"/>
     <g transform="translate(96 73)" stroke-width="1.3" color="var(--nav-lab)"><rect x="-9" y="-7.5" width="18" height="15" rx="1.5"/><path d="M-5.5 -3l3.5 3-3.5 3M0 3.5h5"/></g>
   </a>
-  <a href="/practice" aria-label="Practice" style="--c: var(--nav-practice)">
+  <a href="/play" aria-label="Play" style="--c: var(--nav-practice)">
     <rect x="118" y="56" width="28" height="34" rx="4" fill="transparent"/>
     <g class="practice-icon practice-icon-d20" transform="translate(132 73)" stroke-width="1.3" color="var(--nav-practice)"><path d="M0.00 -8.50L7.36 -4.25L7.36 4.25L0.00 8.50L-7.36 4.25L-7.36 -4.25z"/><path d="M0.00 -4.20L4.60 3.60L-4.60 3.60zM0 -4.2L0.00 -8.50M0 -4.2L7.36 -4.25M0 -4.2L-7.36 -4.25M4.6 3.6L7.36 -4.25M4.6 3.6L7.36 4.25M4.6 3.6L0.00 8.50M-4.6 3.6L0.00 8.50M-4.6 3.6L-7.36 4.25M-4.6 3.6L-7.36 -4.25" stroke-width="1"/></g>
     <g class="practice-icon practice-icon-board" transform="translate(132 73)" stroke-width="1.3" color="var(--nav-practice)"><rect x="-9" y="-8" width="18" height="16" rx="1"/><rect x="-5" y="-4" width="10" height="8" stroke-width="1"/><path d="M-5 -8v4M-5 4v4M-1.7 -8v4M-1.7 4v4M1.7 -8v4M1.7 4v4M5 -8v4M5 4v4M-9 -4h4M5 -4h4M-9 0h4M5 0h4M-9 4h4M5 4h4" stroke-width="1"/><circle cx="3.3" cy="-6" r="1.4" fill="currentColor" stroke="none"/></g>
