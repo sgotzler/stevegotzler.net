@@ -65,7 +65,7 @@
     - { date: "Feb 27, 2026", title: "Materializing Design Traces // Tracing Design Materials", speaker: Dr. Rilla Khaled, type: invited lecture }
     - { date: "Feb 13, 2026", title: "“You Were Expected”: Encountering Algorithmic Rememory in *The Outlast Trials*", speaker: Zayla Crocker, type: works-in-progress }
     - { date: "Nov 13, 2025", title: "Playing to Learn, Learning to Teach: Video Games and the Humanities Classroom", speaker: Dr. Gaspard Pelurson, type: works-in-progress }
-    - { date: "Oct 9, 2025", title: "Annotated Archives: Developing Game Studies Research Tools and Practices", speaker: David Hall, type: works-in-progress }
+    - { date: "Oct 9, 2025", title: "Annotated Archives: Developing Game Studies Research Tools and Practices", speaker: D.A. Hall, type: works-in-progress }
     - { date: "Apr 23, 2025", title: Games Life Writing, speaker: Dr. Rob Gallagher, type: methods workshop }
     - { date: "Apr 22, 2025", title: Self-Narrating Play, speaker: Dr. Rob Gallagher, type: invited lecture }
     - { date: "Mar 21, 2025", title: Auto-Ethnography and Gaming While Asian, speaker: Dr. Edmond Y. Chang, type: methods workshop }
@@ -74,11 +74,11 @@
     # The 2024–25 overview dates the three fall sessions 2025: a slip for 2024.
     - { date: "Nov 19, 2024", title: Gamification and Value Capture, speaker: Dr. Feng Zhu, type: works-in-progress }
     - { date: "Oct 8, 2024", title: Materiality and Analog Play, speaker: Dr. Steven Gotzler, type: works-in-progress }
-    - { date: "Sep 30, 2024", title: "Playful Pedagogies: Teaching with Games", speaker: "Dr. Michelle Robinson, Dr. Jennifer Gates-Foster, Dr. Kym Weed, David Hall, Antonia DiNardo", type: roundtable }
+    - { date: "Sep 30, 2024", title: "Playful Pedagogies: Teaching with Games", speaker: "Dr. Michelle Robinson, Dr. Jennifer Gates-Foster, Dr. Kym Weed, D.A. Hall, Antonia DiNardo", type: roundtable }
     # Not in the 2023–24 overview; Steve confirmed it belongs.
     - { date: "Apr 11, 2024", title: Digital Ethnography for Game Studies Research, speaker: Dr. Kishonna Gray, type: methods workshop }
     - { date: "Apr 10, 2024", title: "Augmenting Reality: Black Praxis in Digital Gaming", speaker: Dr. Kishonna Gray, type: invited lecture }
-    - { date: "Apr 4, 2024", title: "*Intersectional Tech: Black Users in Digital Gaming*", speaker: David Hall, type: discussion session }
+    - { date: "Apr 4, 2024", title: "*Intersectional Tech: Black Users in Digital Gaming*", speaker: D.A. Hall, type: discussion session }
     - { date: "Mar 7, 2024", title: Critical Design and Development Reality, speaker: Ernesto Escobar, type: design workshop }
     - { date: "Nov 28, 2023", title: "Ascesis, Shugyo, and Ethical Self-Cultivation: Gaming as Martial Art?", speaker: Dr. Feng Zhu and Dr. Gaspard Pelurson, type: discussion session }
     - { date: "Oct 24, 2023", title: Introduction to Unity Engine, speaker: Joyce Rudinsky and Doug Stark, type: design workshop }
