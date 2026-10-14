@@ -35,7 +35,7 @@ const design = defineCollection({
     title: z.string(),
     years: z.string().optional(),
     status: z.string(),
-    form: z.string(),
+    form: z.string().optional(),
     description: z.string().optional(),
     grounding: z.string().optional(),
     slides: z.number().default(3), // number of images in the plate's carousel

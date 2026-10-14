@@ -7,7 +7,7 @@ import Feature from '../components/Feature.astro';
 import Figure from '../components/Figure.astro';
 import VenueLine from '../components/VenueLine.astro';
 import WritingPlate from '../components/WritingPlate.astro';
-import { inline, LOREM } from '../lib/text';
+import { inline } from '../lib/text';
 
 const byOrder = (a: { data: { order: number } }, b: { data: { order: number } }) =>
   a.data.order - b.data.order;
@@ -93,16 +93,21 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
       {
         design.map((g) => (
           <article class="plate project" id={g.id}>
-            <Carousel id={g.id} count={g.data.slides} alt={g.data.imageAlt} note={g.data.imageNote} label={g.data.title} />
+            <Carousel id={g.id} count={g.data.slides} alt={g.data.imageAlt} note={g.data.imageNote} label={g.data.title.replaceAll('*', '')} />
             <div class="inner">
               <div class="plate-meta">
+                <span>{g.data.years}</span>
                 <span>{g.data.status}</span>
               </div>
               <h3 class="plate-title" set:html={inline(g.data.title)} />
-              <p class="desc">{LOREM[0]}</p>
+              {g.data.description && <p class="desc" set:html={inline(g.data.description)} />}
               <dl class="fields">
-                <dt>Form</dt>
-                <dd set:html={inline(g.data.form)} />
+                {g.data.form && (
+                  <>
+                    <dt>Form</dt>
+                    <dd set:html={inline(g.data.form)} />
+                  </>
+                )}
                 {g.data.grounding && (
                   <>
                     <dt>Draws on</dt>

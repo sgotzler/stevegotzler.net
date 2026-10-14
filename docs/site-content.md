@@ -203,13 +203,15 @@ I trained in literary and cultural studies at Carnegie Mellon University, where 
 
 ## Games (Research)
 
-- **[Title to come]**
-  - form: Art-RPG, rules-lite, built from the early-1990s *Skydiver's Information Manual*
-  - status: Finishing, autumn 2026
-- **Keep Calm and Carry On**
-  - form: Operational war game about the Blitz, without combatants
+- ***Skydiver’s Information Manual, 1992***
+  - years: 2026
+  - status: Prototype
+  - description: An altered-book solo role-playing game, made from the United States Parachute Association’s original manual and composed as a found-object art game.
+- ***Keep Calm and Carry On***
+  - years: 2025–
   - status: In development
-  - grounding: Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*; archival research at the Imperial War Museum
+  - description: A historical board game about the London Blitz, drawing on materials in the Imperial War Museum archives and designed as an operational war game, but without combatants.
+  - grounding: Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*
 
 ## Podcast (Research)
 

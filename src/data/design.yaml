@@ -1,16 +1,19 @@
+# Games. Copy adapted from the CV entries (Oct 2026). Both are creative practice, not research outputs.
 - id: skydiving-rpg
   order: 1
-  title: "[Title to come]"
-  form: Art-RPG, rules-lite, built from the early-1990s *Skydiver's Information Manual*
-  status: Finishing, autumn 2026
+  title: "*Skydiver’s Information Manual, 1992*"
+  years: "2026"
+  status: Prototype
+  description: An altered-book solo role-playing game, made from the United States Parachute Association’s original manual and composed as a found-object art game.
   slides: 4
-  imageNote: spreads from the finished game
+  imageNote: spreads from the altered manual
 
 - id: keep-calm-and-carry-on
   order: 2
-  title: Keep Calm and Carry On
-  form: Operational war game about the Blitz, without combatants
+  title: "*Keep Calm and Carry On*"
+  years: 2025–
   status: In development
-  grounding: "Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*; archival research at the Imperial War Museum"
+  description: A historical board game about the London Blitz, drawing on materials in the Imperial War Museum archives and designed as an operational war game, but without combatants.
+  grounding: "Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*"
   slides: 3
-  imageNote: prototype board or map
+  imageNote: archival images from the Imperial War Museum
