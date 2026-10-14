@@ -1,37 +1,37 @@
-# Student Work on the Pedagogy page. Each entry is a plate about one
-# signature assignment: what students do and why. Student work appears in the carousel as the example,
-# shown only with the students' consent.
-# To add images, put files in src/assets/images/ named after the id with a slide number,
-#   e.g. video-essay-1.jpg, video-essay-2.jpg …  Until they exist, `slides` sets how many placeholders show.
+# Student Work on the Pedagogy page. Two plates, each grouping signature assignments by kind;
+# the assignments are listed inside the plate, one row each, with a link out to the work.
+# Show and link student work only with the students' consent.
+# Carousel images: src/assets/images/<id>-1.jpg, <id>-2.jpg … one still per assignment, in row order.
 
-- id: video-essay
+- id: multimodal-composition
   order: 1
-  title: Video Essay
-  courses: ENGL 257
-  slides: 3
-  description: "[Description to come]"
-  imageNote: stills from student video essays
+  title: Multimodal Composition
+  courses: ENGL 257 · ENGL 258
+  slides: 2
+  description: "[A sentence on what these assignments share]"
+  imageNote: a still from each assignment
+  assignments:
+    - course: ENGL 257
+      title: Video Essay
+      line: "[What students make]"
+      linkLabel: Watch
+    - course: ENGL 258
+      title: "*Stardew* Poetry"
+      line: Students cut in-game dialogue from *Stardew Valley* with pastoral poetry into new eclogues. ENGL 258 is now ENGL 168.
+      linkLabel: Read
 
-- id: monopoly-but
+- id: game-design
   order: 2
-  title: "*Monopoly*, but…"
-  courses: ENGL 341
-  slides: 3
-  description: "[Description to come]"
-  imageNote: photos of student redesigns
-
-- id: rpg-design
-  order: 3
-  title: RPG Design
-  courses: ENGL 168
-  slides: 3
-  description: "[Description to come]"
-  imageNote: pages from student role-playing games
-
-- id: stardew-poetry
-  order: 4
-  title: "*Stardew* Poetry"
-  courses: ENGL 258 (now ENGL 168)
-  slides: 3
-  description: "[Description to come]"
-  imageNote: student poems and screenshots
+  title: Game Design
+  courses: ENGL 341 · ENGL 168
+  slides: 2
+  description: "[A sentence on what these assignments share]"
+  imageNote: a still from each assignment
+  assignments:
+    - course: ENGL 341
+      title: "*Monopoly*, but…"
+      line: "[A line on the brief]"
+      linkLabel: Rules
+    - course: ENGL 168
+      title: RPG Design
+      line: "[A line on the brief]"

@@ -121,20 +121,35 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
       {
         studentWork.map((w) => (
           <article class="plate project" id={w.id}>
-            <Carousel id={w.id} count={w.data.slides} alt={w.data.imageAlt} note={w.data.imageNote} label={w.data.title.replaceAll('*', '')} />
+            <Carousel id={w.id} count={w.data.slides} gallery={w.data.gallery} alt={w.data.imageAlt} note={w.data.imageNote} label={w.data.title.replaceAll('*', '')} />
             <div class="inner">
               <div class="plate-meta">
                 <span>{w.data.courses}</span>
               </div>
               <h3 class="plate-title" set:html={inline(w.data.title)} />
               <p class="desc" set:html={inline(w.data.description)} />
-              {w.data.link && (
-                <dl class="fields">
-                  <dt>Watch</dt>
-                  <dd>
-                    <a href={w.data.link}>{w.data.linkLabel ?? host(w.data.link)}</a>
-                  </dd>
-                </dl>
+              {w.data.assignments.length > 0 && (
+                <div class="events open assignments">
+                  <ol>
+                    {w.data.assignments.map((a) => (
+                      <li>
+                        <span class="when">{a.course}</span>
+                        <span>
+                          <Fragment set:html={inline(a.title)} />
+                          <span class="who">
+                            <Fragment set:html={inline(a.line)} />
+                            {a.link && (
+                              <>
+                                {' · '}
+                                <a href={a.link}>{a.linkLabel ?? 'Visit'} ↗</a>
+                              </>
+                            )}
+                          </span>
+                        </span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               )}
             </div>
           </article>

@@ -124,6 +124,19 @@ const studentwork = defineCollection({
     linkLabel: z.string().optional(),
     imageNote: z.string().optional(),
     imageAlt: z.string().optional(),
+    gallery: z.array(z.object({ alt: z.string(), focus: z.string().optional() })).optional(), // one per carousel image
+    // the assignments a plate groups, one row each
+    assignments: z
+      .array(
+        z.object({
+          course: z.string(),
+          title: z.string(),
+          line: z.string(), // one line on what students do
+          link: z.string().url().optional(), // the work itself (video, documents)
+          linkLabel: z.string().optional(), // e.g. Watch, Read, Rules
+        }),
+      )
+      .default([]),
   }),
 });
 

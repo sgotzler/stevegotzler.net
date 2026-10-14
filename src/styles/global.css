@@ -854,3 +854,11 @@ button.bracket {
 :root[data-practice='d6'] .practice-icon-d6 {
   display: inline;
 }
+
+/* Student Work: the assignments inside a plate, listed like seminar sessions; course numbers are short, so a narrower column */
+.events.assignments li {
+  grid-template-columns: 4.5rem 1fr;
+}
+.events.assignments .who a {
+  color: var(--color-section);
+}
