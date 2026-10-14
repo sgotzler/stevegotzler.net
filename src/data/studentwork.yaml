@@ -1,21 +1,37 @@
-# Student work for the Pedagogy page. Each entry is a plate with an image carousel.
-# To add images, put files in src/assets/images/ named after the id with a number:
-#   video-essays-1.jpg, video-essays-2.jpg, …   and   game-designs-1.jpg, game-designs-2.jpg, …
-# Until images exist, `slides` sets how many placeholder slides show.
-# Show student work only with the students' consent.
+# Assignments for the Pedagogy page (this file was "student work"). Each entry is a plate about one
+# signature assignment: what students do and why. Student work appears in the carousel as the example,
+# shown only with the students' consent.
+# To add images, put files in src/assets/images/ named after the id with a slide number,
+#   e.g. video-essay-1.jpg, video-essay-2.jpg …  Until they exist, `slides` sets how many placeholders show.
 
-- id: video-essays
+- id: video-essay
   order: 1
-  title: Video Essays
+  title: Video Essay
   courses: ENGL 257
   slides: 3
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+  description: "[Description to come]"
   imageNote: stills from student video essays
 
-- id: game-designs
+- id: monopoly-but
   order: 2
-  title: Game Designs
-  courses: ENGL 341 · ENGL 168
-  slides: 4
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
-  imageNote: photos of finished student games
+  title: Monopoly, but…
+  courses: ENGL 341
+  slides: 3
+  description: "[Description to come]"
+  imageNote: photos of student redesigns
+
+- id: rpg-design
+  order: 3
+  title: RPG Design
+  courses: ENGL 168
+  slides: 3
+  description: "[Description to come]"
+  imageNote: pages from student role-playing games
+
+- id: stardew-poetry
+  order: 4
+  title: Stardew Poetry
+  courses: ENGL 258
+  slides: 3
+  description: "[Description to come]"
+  imageNote: student poems and screenshots
