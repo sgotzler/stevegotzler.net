@@ -14,7 +14,7 @@
 
 - id: monopoly-but
   order: 2
-  title: Monopoly, but…
+  title: "*Monopoly*, but…"
   courses: ENGL 341
   slides: 3
   description: "[Description to come]"
@@ -30,7 +30,7 @@
 
 - id: stardew-poetry
   order: 4
-  title: Stardew Poetry
+  title: "*Stardew* Poetry"
   courses: ENGL 258 (now ENGL 168)
   slides: 3
   description: "[Description to come]"

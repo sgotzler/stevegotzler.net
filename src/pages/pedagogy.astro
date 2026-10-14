@@ -121,7 +121,7 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
       {
         studentWork.map((w) => (
           <article class="plate project" id={w.id}>
-            <Carousel id={w.id} count={w.data.slides} alt={w.data.imageAlt} note={w.data.imageNote} label={w.data.title} />
+            <Carousel id={w.id} count={w.data.slides} alt={w.data.imageAlt} note={w.data.imageNote} label={w.data.title.replaceAll('*', '')} />
             <div class="inner">
               <div class="plate-meta">
                 <span>{w.data.courses}</span>
