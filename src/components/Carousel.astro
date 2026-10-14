@@ -3,7 +3,7 @@
 // Shows the numbered images for an entry (id-1, id-2, …), or placeholders until they exist.
 import { Image } from 'astro:assets';
 import Placeholder from './Placeholder.astro';
-import { slidesFor } from '../lib/images';
+import { numberedSlidesFor } from '../lib/images';
 
 interface Props {
   id: string;
@@ -15,9 +15,12 @@ interface Props {
   ratio?: string; // frame shape, e.g. "3 / 2" or "1"
   framed?: boolean; // true when the carousel stands alone, outside an image plate
 }
-const { id, label, count: planned = 3, note, alt = '', gallery = [], ratio = '3 / 2', framed = false } = Astro.props;
-const images = slidesFor(id);
-const count = images.length || planned;
+const { id, label, count: planned, note, alt = '', gallery = [], ratio = '3 / 2', framed = false } = Astro.props;
+// Slide n shows `<id>-n` from src/assets/images, or a placeholder until that file exists.
+// With `count`, the carousel keeps that many slots; without it, only the images that exist.
+const byNumber = numberedSlidesFor(id);
+const highest = Math.max(0, ...byNumber.keys());
+const count = Math.max(planned ?? 0, highest) || 3;
 const slides = Array.from({ length: count }, (_, i) => i);
 ---
 
@@ -33,10 +36,10 @@ const slides = Array.from({ length: count }, (_, i) => i);
     {
       slides.map((i) => (
         <div class="slide" aria-label={`${i + 1} of ${count}`}>
-          {images.length ? (
+          {byNumber.get(i + 1) ? (
             <Image
               class="figure-img"
-              src={images[i]}
+              src={byNumber.get(i + 1)!}
               alt={gallery[i]?.alt ?? `${alt} (${i + 1} of ${count})`.trim()}
               style={gallery[i]?.focus ? `object-position: ${gallery[i].focus}` : undefined}
               widths={[640, 1200]}

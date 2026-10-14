@@ -18,6 +18,14 @@ export const slidesFor = (id: string) =>
     .sort(([a], [b]) => Number(a.split('-').pop()) - Number(b.split('-').pop()))
     .map(([, img]) => img);
 
+// The same, keyed by slide number, so a slide can be filled before the ones in front of it.
+export const numberedSlidesFor = (id: string) =>
+  new Map(
+    [...byName.entries()]
+      .filter(([name]) => new RegExp(`^${id}-\\d+$`).test(name))
+      .map(([name, img]) => [Number(name.split('-').pop()), img] as const),
+  );
+
 // Drawn marks: SVG files in the same folder, placed inline so they take the page's ink and accent colours.
 const marks = import.meta.glob<string>('../assets/images/*.svg', { eager: true, query: '?raw', import: 'default' });
 const markByName = new Map(
