@@ -1,10 +1,10 @@
 # Site content: stevegotzler.net (rebuild)
 
-Exported 2026-10-12 from the site's data files. Asterisks mark italics. "status" and "type" are the labels shown on the site.
+Exported 2026-10-14 from the site's data files. Asterisks mark italics. "status" and "type" are the labels shown on the site.
 
 ## About (bio)
 
-I am a Teaching Assistant Professor of English & Comparative Literature at UNC Chapel Hill, where I direct the Digital Literacy and Communications (DLC) Lab and the Critical Game Studies Program. My courses range from horror fiction to tabletop game design, and in most of them students play, dismantle, and build games. I co-host Subject Matter: Table Top, a podcast about board games and the subjects they take up, and I build small digital tools, from reading editions to locally hosted language models, on the principle that knowing how our tools work gives us a clearer view of the conditions of our labor.
+I am a Teaching Assistant Professor of English & Comparative Literature at UNC Chapel Hill, where I direct the Digital Literacy and Communications (DLC) Lab and the Critical Game Studies Program. My courses range from horror fiction to tabletop game design, and in most of them students play, dismantle, and build games. I co-host Subject Matter: Table Top, a podcast about board games and the subjects they take up. I also treat game design as a research method, and build small digital tools, from reading editions to locally hosted language models, on the principle that knowing how our technologies work gives us a clearer view of the conditions of our labor.
 
 I trained in literary and cultural studies at Carnegie Mellon University, where my doctoral work drew together media history, digital humanities, and critical university studies. I grew up in California's high Mojave Desert, east of the Sierra Nevada near Death Valley, and spent my undergraduate years as a banana slug at UC Santa Cruz, majoring in American Studies.
 
