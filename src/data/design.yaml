@@ -16,5 +16,8 @@
   description: A historical board game about the London Blitz, drawing on materials in the Imperial War Museum archives and designed as an operational war game, but without combatants.
   grounding: "Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*; IWM London"
   slides: 3
-  imageNote: archival images from the Imperial War Museum
-  imageAlt: The words Keep Calm in white capitals on the creased red paper of the 1939 poster
+  # One description per carousel image, in slide order.
+  gallery:
+    - alt: An Air Raid Precautions Warden's Report Form, photographed in an archive beside a grey scale card, with blank fields for the type of bombs, casualties, fire, and damage to mains
+    - alt: A bomb damage map of the City of London around St Paul's Cathedral, with most of the surrounding blocks coloured purple for damaged beyond repair
+    - alt: The words Keep Calm in white capitals on the creased red paper of the 1939 poster

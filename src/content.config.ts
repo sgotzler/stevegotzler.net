@@ -43,6 +43,7 @@ const design = defineCollection({
     image: z.boolean().default(true),
     imageNote: z.string().optional(), // what the placeholder says
     imageAlt: z.string().optional(), // description for screen readers
+    gallery: z.array(z.object({ alt: z.string(), focus: z.string().optional() })).optional(), // one per carousel image
     pairedWith: z.string().optional(),
   }),
 });

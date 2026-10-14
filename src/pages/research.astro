@@ -93,7 +93,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
       {
         design.map((g) => (
           <article class="plate project" id={g.id}>
-            <Carousel id={g.id} count={g.data.slides} alt={g.data.imageAlt} note={g.data.imageNote} label={g.data.title.replaceAll('*', '')} />
+            <Carousel id={g.id} count={g.data.slides} gallery={g.data.gallery} alt={g.data.imageAlt} note={g.data.imageNote} label={g.data.title.replaceAll('*', '')} />
             <div class="inner">
               <div class="plate-meta">
                 <span>{g.data.years}</span>

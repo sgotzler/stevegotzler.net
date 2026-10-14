@@ -212,6 +212,7 @@ I trained in literary and cultural studies at Carnegie Mellon University, where 
   - status: In development
   - description: A historical board game about the London Blitz, drawing on materials in the Imperial War Museum archives and designed as an operational war game, but without combatants.
   - grounding: Paul K. Saint-Amour, *Tense Future*; Angus Calder, *The Myth of the Blitz*; IWM London
+  - gallery: [object Object]; [object Object]; [object Object]
 
 ## Podcast (Research)
 
