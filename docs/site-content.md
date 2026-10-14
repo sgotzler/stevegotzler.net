@@ -207,6 +207,7 @@ I trained in literary and cultural studies at Carnegie Mellon University, where 
   - years: 2026
   - status: Prototype
   - description: A found-object solo role-playing game, composed out of the United States Parachute Association’s handbook for new jumpers, a manual of rules for managing a dangerous form of play.
+  - grounding: W. J. Miller and J. H. Frey, “Skydivers as Risk Takers: An Examination”; a skydiver’s logbook; my childhood
 - ***Keep Calm and Carry On***
   - years: 2025–
   - status: In development
