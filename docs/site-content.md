@@ -206,7 +206,7 @@ I trained in literary and cultural studies at Carnegie Mellon University, where 
 - ***Skydiver’s Information Manual, 1992***
   - years: 2026
   - status: Prototype
-  - description: A found-object solo role-playing game, composed out of the United States Parachute Association’s handbook for new jumpers: a manual of rules for managing a dangerous form of play.
+  - description: A found-object solo role-playing game, composed out of the United States Parachute Association’s handbook for new jumpers, a manual of rules for managing a dangerous form of play.
 - ***Keep Calm and Carry On***
   - years: 2025–
   - status: In development
