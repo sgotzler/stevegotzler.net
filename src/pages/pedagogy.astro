@@ -127,7 +127,7 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
                 <span>{w.data.courses}</span>
               </div>
               <h3 class="plate-title" set:html={inline(w.data.title)} />
-              <p class="desc" set:html={inline(w.data.description)} />
+              {w.data.description && <p class="desc" set:html={inline(w.data.description)} />}
               {w.data.assignments.length > 0 && (
                 <div class="events open assignments">
                   <ol>

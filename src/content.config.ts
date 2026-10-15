@@ -119,7 +119,7 @@ const studentwork = defineCollection({
     title: z.string(),
     courses: z.string(), // course numbers shown in the meta line
     slides: z.number().default(3), // placeholder slides until real images exist
-    description: z.string(),
+    description: z.string().optional(),
     link: z.string().url().optional(),
     linkLabel: z.string().optional(),
     imageNote: z.string().optional(),
