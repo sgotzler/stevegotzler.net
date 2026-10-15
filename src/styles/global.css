@@ -924,6 +924,12 @@ button.bracket {
   color: var(--color-meta);
   margin-top: 0.3rem;
 }
+.sw-cards.large li {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+.sw-cards.large .ph {
+  font-size: 0.75rem;
+}
 .sw-across + .subhead {
   margin-top: 2rem;
 }
