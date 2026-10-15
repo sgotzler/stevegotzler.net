@@ -142,14 +142,13 @@ const plain = (t: string) => t.replaceAll('*', '');
     {
       groups.map((g) => (
         <div class="sw-group">
-          <div class="plate-meta"><span>{g.data.courses}</span></div>
-          <h3 class="plate-title" set:html={inline(g.data.title)} />
+          <h3 class="sw-group-title" set:html={inline(g.data.title)} />
           <div class="sw-group-rows">
             {g.data.assignments.map((a) => (
               <article class="sw-row">
                 <Placeholder note={`still from ${plain(a.title)}`} />
                 <div>
-                  <p class="sw-course">{a.course}{a.courseNote && ` ${a.courseNote}`}</p>
+                  <p class="sw-course sw-kicker">{a.course}{a.courseNote && ` ${a.courseNote}`}</p>
                   <p class="sw-row-title" set:html={inline(a.title)} />
                   <p class="desc" set:html={inline(a.line)} />
                 </div>

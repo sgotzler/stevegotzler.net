@@ -941,9 +941,17 @@ button.bracket {
 .sw-group + .sw-group {
   margin-top: 2.75rem;
 }
-.sw-group > .plate-title {
-  font-size: clamp(1.5rem, 2.6vw, 1.9rem); /* larger than the assignment titles inside it */
+.sw-group-title {
+  font-family: var(--label);
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
   margin-bottom: 0.9rem;
+}
+/* the course number above each assignment, in the page's colour, like the course plates' kickers */
+.sw-kicker {
+  color: var(--color-section);
+  letter-spacing: 0.04em;
 }
 .sw-group-rows {
   border: 1px solid var(--color-rule);
