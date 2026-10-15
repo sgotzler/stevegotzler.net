@@ -936,3 +936,39 @@ button.bracket {
 .sw-across .plate + .plate {
   border-top: 0;
 }
+
+/* TRIAL 3b */
+.sw-group + .sw-group {
+  margin-top: 2.75rem;
+}
+.sw-group > .plate-title {
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem); /* larger than the assignment titles inside it */
+  margin-bottom: 0.9rem;
+}
+.sw-group-rows {
+  border: 1px solid var(--color-rule);
+}
+.sw-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 1.5rem;
+  padding: 1rem;
+}
+.sw-row .ph {
+  aspect-ratio: 16 / 9;
+}
+.sw-row-title {
+  font-size: 1.1875rem;
+  line-height: 1.22;
+  margin-top: 0.2rem;
+}
+.sw-row .desc {
+  font-size: 0.9375rem;
+  margin-top: 0.5rem;
+  max-width: 60ch;
+}
+@media (max-width: 44rem) {
+  .sw-row {
+    grid-template-columns: 1fr;
+  }
+}

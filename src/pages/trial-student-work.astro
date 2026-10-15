@@ -17,6 +17,7 @@ const plain = (t: string) => t.replaceAll('*', '');
       <a href="#two"><span class="n">02</span>Image beside each row</a>
       <a href="#two-b"><span class="n">02b</span>Larger image beside each row</a>
       <a href="#three"><span class="n">03</span>Full-width rows</a>
+      <a href="#three-b"><span class="n">03b</span>Full-width rows, headed groups</a>
     </nav>
   </header>
 
@@ -132,6 +133,30 @@ const plain = (t: string) => t.replaceAll('*', '');
             ))}
           </div>
         </>
+      ))
+    }
+  </section>
+  <!-- 3b · Full-width rows under real group headings; video-shaped images; one frame per group -->
+  <section class="section" id="three-b">
+    <div class="section-head"><span class="n">03b</span><h2>Full-width rows, headed groups</h2></div>
+    {
+      groups.map((g) => (
+        <div class="sw-group">
+          <div class="plate-meta"><span>{g.data.courses}</span></div>
+          <h3 class="plate-title" set:html={inline(g.data.title)} />
+          <div class="sw-group-rows">
+            {g.data.assignments.map((a) => (
+              <article class="sw-row">
+                <Placeholder note={`still from ${plain(a.title)}`} />
+                <div>
+                  <p class="sw-course">{a.course}{a.courseNote && ` ${a.courseNote}`}</p>
+                  <p class="sw-row-title" set:html={inline(a.title)} />
+                  <p class="desc" set:html={inline(a.line)} />
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
       ))
     }
   </section>
