@@ -13,12 +13,12 @@
   assignments:
     - course: ENGL 257
       title: Video Essay
-      line: A capstone video essay making an original argument about the shared histories, forms, and genres of games and cinema. Students move from proposal to storyboard and script, then edit through rough cut, peer review, and final cut. The visuals must argue as much as the voice-over.
+      line: Students cut clips from games and films into video essays that argue about the shared histories, forms, and genres of the two.
       linkLabel: Watch
     - course: ENGL 258
       courseNote: (now ENGL 168)
       title: "*Stardew* Poetry"
-      line: After a session on the pastoral and a critical play session in *Stardew Valley*, students compose a pastoral poem by cut-and-mix. Lines from Theocritus to Wordsworth meet the game’s dialogue and item text, with an author’s note on their choices. The remix itself carries the argument.
+      line: Students cut in-game dialogue from *Stardew Valley* with pastoral poetry into new eclogues.
       linkLabel: Read
 
 - id: game-design
