@@ -942,11 +942,14 @@ button.bracket {
   margin-top: 2.75rem;
 }
 .sw-group-title {
+  /* the same rule as the kickers on Research ("Manuscript in preparation") */
   font-family: var(--label);
-  font-size: clamp(1.125rem, 2vw, 1.3rem);
+  font-size: 0.75rem;
   font-weight: 400;
-  letter-spacing: -0.01em;
-  margin-bottom: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-section);
+  margin-bottom: 0.6rem;
 }
 /* the course number above each assignment, in the page's colour, like the course plates' kickers */
 .sw-kicker {
