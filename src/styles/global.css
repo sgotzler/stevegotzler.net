@@ -914,3 +914,8 @@ button.bracket {
     grid-template-columns: 1fr;
   }
 }
+
+/* The permission note under Student Work sits a little below the last group */
+.sw-group + .catalogue-note {
+  margin-top: 1.1rem;
+}
