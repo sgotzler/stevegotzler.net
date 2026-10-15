@@ -5,7 +5,7 @@
 
 - id: multimodal-composition
   order: 1
-  title: Multimodal Composition
+  title: Multimodal composition
   courses: ENGL 257 · ENGL 258
   slides: 2
   description: Critical work composed in the forms it studies, setting games beside film and poetry.
@@ -23,7 +23,7 @@
 
 - id: game-design
   order: 2
-  title: Game Design
+  title: Game design
   courses: ENGL 341 · ENGL 168
   slides: 2
   description: "[A sentence on what these assignments share]"
