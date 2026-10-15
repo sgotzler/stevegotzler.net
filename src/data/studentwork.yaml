@@ -23,14 +23,14 @@
 - id: game-design
   order: 2
   title: game design
-  courses: ENGL 341 · ENGL 168
+  courses: ENGL 168 · ENGL 341
   slides: 2
   imageNote: a still from each assignment
   assignments:
+    - course: ENGL 168
+      title: Story Games
+      line: Students design short role-playing games inspired by the course’s readings, turning the conventions of fantasy, horror, or detective fiction into rules for play. Designing in a genre becomes a way of reading it closely, isolating formal techniques for worldbuilding, atmosphere, and investigation.
     - course: ENGL 341
       title: "*Monopoly*, but…"
       line: "In small groups, students rewrite the rules of *Monopoly* around a theme of their choosing. Rewriting a game everyone knows turns its assumptions into choices that students can reverse, keep, or exaggerate."
       linkLabel: Rules
-    - course: ENGL 168
-      title: Story Games
-      line: Students design short role-playing games inspired by the course’s readings, turning the conventions of fantasy, horror, or detective fiction into rules for play. Designing in a genre becomes a way of reading it closely, isolating formal techniques for worldbuilding, atmosphere, and investigation.
