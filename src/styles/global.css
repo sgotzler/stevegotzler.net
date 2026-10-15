@@ -855,89 +855,8 @@ button.bracket {
   display: inline;
 }
 
-/* Student Work: the assignments inside a plate, listed like seminar sessions; course numbers are short, so a narrower column */
-.events.assignments li {
-  grid-template-columns: 6rem 1fr;
-}
-.events.assignments .course-note {
-  display: block;
-}
-.events.assignments .who a {
-  color: var(--color-section);
-}
 
-/* TRIAL: Student Work layouts (see /trial-student-work). Delete the ones not chosen. */
-.sw-diptych {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--color-rule);
-}
-.sw-diptych figure {
-  margin: 0;
-  min-width: 0;
-}
-.sw-diptych figure + figure {
-  border-left: 1px solid var(--color-rule);
-}
-.sw-diptych .ph {
-  aspect-ratio: 3 / 2;
-  border: 0;
-}
-.sw-diptych figcaption {
-  font-family: var(--label);
-  font-size: 0.75rem;
-  color: var(--color-meta);
-  padding: 0.4rem 0.75rem;
-  border-top: 1px solid var(--color-rule);
-}
-.sw-cards {
-  list-style: none;
-  margin: 0.9rem 0 0;
-  padding: 0;
-}
-.sw-cards li {
-  display: grid;
-  grid-template-columns: 9rem 1fr;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  border-top: 1px solid var(--color-rule);
-  align-items: start;
-}
-.sw-cards .ph {
-  aspect-ratio: 3 / 2;
-  padding: 0.4rem;
-  font-size: 0.6875rem;
-}
-.sw-course {
-  font-family: var(--label);
-  font-size: 0.75rem;
-  color: var(--color-meta);
-}
-.sw-title {
-  font-size: 1.0625rem;
-  margin-top: 0.2rem;
-}
-.sw-line {
-  font-family: var(--label);
-  font-size: 0.75rem;
-  line-height: 1.45;
-  color: var(--color-meta);
-  margin-top: 0.3rem;
-}
-.sw-cards.large li {
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-}
-.sw-cards.large .ph {
-  font-size: 0.75rem;
-}
-.sw-across + .subhead {
-  margin-top: 2rem;
-}
-.sw-across .plate + .plate {
-  border-top: 0;
-}
-
-/* TRIAL 3b */
+/* Student Work: assignments grouped under a kicker-style heading; each row has its own image */
 .sw-group + .sw-group {
   margin-top: 2.75rem;
 }
@@ -953,8 +872,18 @@ button.bracket {
 }
 /* the course number above each assignment, in the page's colour, like the course plates' kickers */
 .sw-kicker {
+  font-family: var(--label);
+  font-size: 0.75rem;
   color: var(--color-section);
   letter-spacing: 0.04em;
+}
+.sw-link {
+  font-family: var(--label);
+  font-size: 0.75rem;
+  margin-top: 0.6rem;
+}
+.sw-group > .desc {
+  margin: -0.2rem 0 0.9rem;
 }
 .sw-group-rows {
   border: 1px solid var(--color-rule);
@@ -965,13 +894,15 @@ button.bracket {
   gap: 1.5rem;
   padding: 1rem;
 }
-.sw-row .ph {
+.sw-row .ph,
+.sw-row .figure-img {
   aspect-ratio: 16 / 9;
 }
 .sw-row-title {
   font-size: 1.1875rem;
+  font-weight: 400;
   line-height: 1.22;
-  margin-top: 0.2rem;
+  margin: 0.2rem 0 0;
 }
 .sw-row .desc {
   font-size: 0.9375rem;

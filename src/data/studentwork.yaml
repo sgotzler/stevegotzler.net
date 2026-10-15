@@ -1,7 +1,9 @@
-# Student Work on the Pedagogy page. Two plates, each grouping signature assignments by kind;
-# the assignments are listed inside the plate, one row each, with a link out to the work.
+# Student Work on the Pedagogy page. Two groups, each with a small heading and a framed set of
+# assignments, one row each: an image, the course, the title, a description, and a link out to the work.
 # Show and link student work only with the students' consent.
-# Carousel images: src/assets/images/<id>-1.jpg, <id>-2.jpg … one still per assignment, in row order.
+# Images: src/assets/images/<group id>-1.jpg, -2.jpg … one per assignment, in row order
+#   (e.g. multimodal-composition-1.jpg is the Video Essays image). Until a file exists, a placeholder shows.
+# `slides` is no longer used here.
 
 - id: multimodal-composition
   order: 1

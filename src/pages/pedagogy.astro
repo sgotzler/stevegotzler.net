@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageMark from '../components/PageMark.astro';
-import Carousel from '../components/Carousel.astro';
 import Figure from '../components/Figure.astro';
 import { inline } from '../lib/text';
 
@@ -117,47 +116,37 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
       <span class="n">02</span>
       <h2>Student Work</h2>
     </div>
-    <div class="catalogue two">
-      {
-        studentWork.map((w) => (
-          <article class="plate project" id={w.id}>
-            <Carousel id={w.id} count={w.data.slides} gallery={w.data.gallery} alt={w.data.imageAlt} note={w.data.imageNote} label={w.data.title.replaceAll('*', '')} />
-            <div class="inner">
-              <div class="plate-meta">
-                <span>{w.data.courses}</span>
-              </div>
-              <h3 class="plate-title" set:html={inline(w.data.title)} />
-              {w.data.description && <p class="desc" set:html={inline(w.data.description)} />}
-              {w.data.assignments.length > 0 && (
-                <div class="events open assignments">
-                  <ol>
-                    {w.data.assignments.map((a) => (
-                      <li>
-                        <span class="when">
-                          {a.course}
-                          {a.courseNote && <span class="course-note">{a.courseNote}</span>}
-                        </span>
-                        <span>
-                          <Fragment set:html={inline(a.title)} />
-                          <span class="who">
-                            <Fragment set:html={inline(a.line)} />
-                            {a.link && (
-                              <>
-                                {' · '}
-                                <a href={a.link}>{a.linkLabel ?? 'Visit'} ↗</a>
-                              </>
-                            )}
-                          </span>
-                        </span>
-                      </li>
-                    ))}
-                  </ol>
+    {
+      studentWork.map((w) => (
+        <div class="sw-group" id={w.id}>
+          <h3 class="sw-group-title" set:html={inline(w.data.title)} />
+          {w.data.description && <p class="desc" set:html={inline(w.data.description)} />}
+          <div class="sw-group-rows">
+            {w.data.assignments.map((a, i) => (
+              <article class="sw-row">
+                <Figure
+                  id={`${w.id}-${i + 1}`}
+                  alt={w.data.gallery?.[i]?.alt ?? ''}
+                  note={`still from ${a.title.replaceAll('*', '')}`}
+                />
+                <div>
+                  <p class="sw-kicker">
+                    {a.course}
+                    {a.courseNote && ` ${a.courseNote}`}
+                  </p>
+                  <h4 class="sw-row-title" set:html={inline(a.title)} />
+                  <p class="desc" set:html={inline(a.line)} />
+                  {a.link && (
+                    <p class="sw-link">
+                      <a href={a.link}>{a.linkLabel ?? 'Visit'} ↗</a>
+                    </p>
+                  )}
                 </div>
-              )}
-            </div>
-          </article>
-        ))
-      }
-    </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      ))
+    }
   </section>
 </Base>
