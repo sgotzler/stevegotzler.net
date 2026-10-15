@@ -8,16 +8,17 @@
   title: Multimodal Composition
   courses: ENGL 257 · ENGL 258
   slides: 2
-  description: "[A sentence on what these assignments share]"
+  description: Critical arguments composed from found material, in video and in verse, where the arrangement itself makes the case.
   imageNote: a still from each assignment
   assignments:
     - course: ENGL 257
       title: Video Essay
-      line: "[What students make]"
+      line: A capstone video essay making an original argument about the shared histories, forms, and genres of games and cinema. Students move from proposal to storyboard and script, then edit through rough cut, peer review, and final cut. The visuals must argue as much as the voice-over.
       linkLabel: Watch
     - course: ENGL 258
+      courseNote: (now ENGL 168)
       title: "*Stardew* Poetry"
-      line: Students cut in-game dialogue from *Stardew Valley* with pastoral poetry into new eclogues. ENGL 258 is now ENGL 168.
+      line: After a session on the pastoral and a critical play session in *Stardew Valley*, students compose a pastoral poem by cut-and-mix. Lines from Theocritus to Wordsworth meet the game’s dialogue and item text, with an author’s note on their choices. The remix itself carries the argument.
       linkLabel: Read
 
 - id: game-design

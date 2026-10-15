@@ -133,7 +133,10 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
                   <ol>
                     {w.data.assignments.map((a) => (
                       <li>
-                        <span class="when">{a.course}</span>
+                        <span class="when">
+                          {a.course}
+                          {a.courseNote && <span class="course-note">{a.courseNote}</span>}
+                        </span>
                         <span>
                           <Fragment set:html={inline(a.title)} />
                           <span class="who">

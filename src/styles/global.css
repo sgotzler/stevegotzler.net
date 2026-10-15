@@ -857,7 +857,10 @@ button.bracket {
 
 /* Student Work: the assignments inside a plate, listed like seminar sessions; course numbers are short, so a narrower column */
 .events.assignments li {
-  grid-template-columns: 4.5rem 1fr;
+  grid-template-columns: 6rem 1fr;
+}
+.events.assignments .course-note {
+  display: block;
 }
 .events.assignments .who a {
   color: var(--color-section);

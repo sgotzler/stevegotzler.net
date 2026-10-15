@@ -1,6 +1,6 @@
 # Site content: stevegotzler.net (rebuild)
 
-Exported 2026-10-14 from the site's data files. Asterisks mark italics. "status" and "type" are the labels shown on the site.
+Exported 2026-10-15 from the site's data files. Asterisks mark italics. "status" and "type" are the labels shown on the site.
 
 ## About (bio)
 

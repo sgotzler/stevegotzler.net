@@ -130,6 +130,7 @@ const studentwork = defineCollection({
       .array(
         z.object({
           course: z.string(),
+          courseNote: z.string().optional(), // a second line under the course number, e.g. (now ENGL 168)
           title: z.string(),
           line: z.string(), // one line on what students do
           link: z.string().url().optional(), // the work itself (video, documents)
