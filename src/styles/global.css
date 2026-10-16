@@ -830,31 +830,6 @@ button.bracket {
   }
 }
 
-/* TRIAL (temporary): a fourth page, "Practice". The header switch sets data-practice to d20, board or d6. */
-.practice-only,
-.mark-five {
-  display: none;
-}
-:root[data-practice] .practice-only {
-  display: inline;
-}
-:root[data-practice] .mark-five {
-  display: block;
-}
-:root[data-practice] .mark-four {
-  display: none;
-}
-/* one candidate icon at a time; the twenty-sided die when the switch is off (on the Practice page itself) */
-.practice-icon {
-  display: none;
-}
-:root:not([data-practice]) .practice-icon-d20,
-:root[data-practice='d20'] .practice-icon-d20,
-:root[data-practice='board'] .practice-icon-board,
-:root[data-practice='d6'] .practice-icon-d6 {
-  display: inline;
-}
-
 
 /* Student Work: assignments grouped under a kicker-style heading; each row has its own image */
 .sw-group + .sw-group {

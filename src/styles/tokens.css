@@ -293,11 +293,3 @@
 :root[data-theme="light"]:not([data-palette="lecture"]) { --nav-home: var(--rose); }
 :root[data-palette="lecture"][data-theme="light"] { --nav-home: var(--ochre); }
 :root[data-theme="light"]:not([data-palette="lecture"]) [data-section="home"] { --color-section: var(--rose); }
-
-
-/* TRIAL: nav colour for a possible fourth page, "Practice" (the kit's "design" section: lavender, plum on Paper) */
-:root { --nav-practice: var(--lavender); }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) { --nav-practice: var(--plum); }
-}
-:root[data-theme="light"] { --nav-practice: var(--plum); }
