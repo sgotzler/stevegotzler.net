@@ -31,6 +31,9 @@
   courses: ENGL 168 · ENGL 341
   slides: 2
   imageNote: a still from each assignment
+  gallery:
+    - alt: "A character sheet from a student role-playing game about a band: The Hardcore, with a drawing of a bass player and a list of instruments to choose from"
+    - alt: "A student redesign of Monopoly called Feudopoly, with decks labelled Banalities, Royal Reckoning and Divine Will on a re-skinned board"
   assignments:
     - course: ENGL 168
       title: Story Games
