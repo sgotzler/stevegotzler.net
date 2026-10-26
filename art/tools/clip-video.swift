@@ -25,6 +25,14 @@ let li = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
 // move the band's centre to the frame's centre
 let dy = outH / 2 - (band.midY)
 li.setTransform(CGAffineTransform(translationX: -band.minX, y: dy), at: .zero)
+// optional: from a given time on (the side-by-side passages), zoom in by a factor around the frame's centre
+// usage: clip <in> <out> <start> <dur> <poster> [posterTime] [zoomFrom] [zoom]
+if CommandLine.arguments.count > 8 {
+  let from = Double(CommandLine.arguments[7])!, z = Double(CommandLine.arguments[8])!
+  let base = CGAffineTransform(translationX: -band.minX, y: dy)
+  let zoom = CGAffineTransform(translationX: outW / 2, y: outH / 2).scaledBy(x: z, y: z).translatedBy(x: -outW / 2, y: -outH / 2)
+  li.setTransform(base.concatenating(zoom), at: CMTime(seconds: from, preferredTimescale: 600))
+}
 ins.layerInstructions = [li]
 vc.instructions = [ins]
 let ex = AVAssetExportSession(asset: comp, presetName: AVAssetExportPreset640x480)!
