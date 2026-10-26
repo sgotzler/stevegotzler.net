@@ -22,12 +22,12 @@
       # Shown in place of an image: an excerpt from a student poem, typeset so its two sources show.
       # `game` lines are text from Stardew Valley (set in the sans-serif); `poem` lines are from the pastoral poets (serif italic).
       excerpt:
-        heading: "Idyll 3: Modernus"
+        heading: "Idyll 2: Negotium"
         lines:
-          - { source: game, text: "The stronger Joja becomes, the closer I move toward bankruptcy. I might have to sell the shop" }
-          - { source: poem, text: "Society is all but rude to this delicious solitude" }
-          - { source: game, text: "I guess times change, and good things come and go…" }
-          - { source: poem, text: "And much it griev’d my heart to think what man has made of man." }
+          - { source: game, text: "The spirits are somewhat annoyed today. Luck will not be on your side." }
+          - { source: poem, text: "It’s time again to put the bull before the deep-pointed plough to pull his weight" }
+          - { source: game, text: "You’re starting to feel exhausted" }
+          - { source: poem, text: "Where were you, Nymphs, when Daphnis wasted away?" }
       line: Students cut-and-mix in-game text from *Stardew Valley* with pastoral poetry from Theocritus to Wordsworth, composing new eclogues. The remix format collapses close reading, procedural analysis, and creative writing into a single composition.
       linkLabel: Read
 
