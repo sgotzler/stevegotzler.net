@@ -16,7 +16,7 @@
   description: The lab supports research, teaching, and public work across the digital humanities and critical game studies.
   link: https://dlclab.unc.edu/
   imageNote: the lab
-  imageAlt: The DLC Lab logo, with DLC and LAB in large white letters around the words Digital Literacy and Communications, on Carolina blue with cross-hatched corners
+  imageAlt: "The DLC Lab logo: DLC LAB in white outlined capitals over the words Digital Literacy and Communications, on Carolina blue with cross-hatched corners"
 
 - id: critical-game-studies-program
   kind: child
