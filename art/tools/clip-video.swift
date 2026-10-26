@@ -27,7 +27,7 @@ let dy = outH / 2 - (band.midY)
 li.setTransform(CGAffineTransform(translationX: -band.minX, y: dy), at: .zero)
 ins.layerInstructions = [li]
 vc.instructions = [ins]
-let ex = AVAssetExportSession(asset: comp, presetName: AVAssetExportPreset960x540)!
+let ex = AVAssetExportSession(asset: comp, presetName: AVAssetExportPreset640x480)!
 ex.videoComposition = vc
 ex.outputURL = URL(fileURLWithPath: a[2]); ex.outputFileType = .mp4; ex.shouldOptimizeForNetworkUse = true
 let sem = DispatchSemaphore(value: 0)
@@ -38,5 +38,5 @@ let gen = AVAssetImageGenerator(asset: comp)
 gen.videoComposition = vc
 gen.requestedTimeToleranceBefore = .zero; gen.requestedTimeToleranceAfter = .zero
 gen.maximumSize = CGSize(width: 1280, height: 720)
-let img = try! gen.copyCGImage(at: CMTime(seconds: 1.0, preferredTimescale: 600), actualTime: nil)
+let img = try! gen.copyCGImage(at: CMTime(seconds: Double(CommandLine.arguments.count > 6 ? CommandLine.arguments[6] : "1.0")!, preferredTimescale: 600), actualTime: nil)
 try! NSBitmapImageRep(cgImage: img).representation(using: .jpeg, properties: [.compressionFactor: 0.88])!.write(to: URL(fileURLWithPath: a[5]))
