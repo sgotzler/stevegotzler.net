@@ -8,6 +8,12 @@
   grounding: "W. J. Miller and J. H. Frey, “Skydivers as Risk Takers: An Examination”; a logbook kept by a skydiver in 1992; my childhood"
   slides: 4
   imageNote: spreads from the altered manual
+  # Placeholder photos of the 1992 manual and logbook, until scans of the altered pages exist.
+  gallery:
+    - alt: "The cover of Parachuting Manual with Log, a pocket-sized first jump course, with a photograph of a skydiver under a square canopy"
+    - alt: "A page titled The Count, with small drawings of a skydiver in each position from Arch Thousand to Check Thousand"
+    - alt: "The Emergency Procedures spread, bordered in black and white hazard stripes, with drawings of canopy malfunctions"
+    - alt: "A logbook page with the first four jumps of 1992 filled in by hand: dates, aircraft, altitude, and seconds of delay"
 
 - id: keep-calm-and-carry-on
   order: 2

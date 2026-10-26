@@ -1,6 +1,6 @@
 # Site content: stevegotzler.net (rebuild)
 
-Exported 2026-10-16 from the site's data files. Asterisks mark italics. "status" and "type" are the labels shown on the site.
+Exported 2026-10-26 from the site's data files. Asterisks mark italics. "status" and "type" are the labels shown on the site.
 
 ## About (bio)
 
@@ -208,6 +208,7 @@ I trained in literary and cultural studies at Carnegie Mellon University, where 
   - status: Prototype
   - description: A found-object solo role-playing game, composed out of the United States Parachute Association’s handbook for new jumpers, a manual of rules for managing a dangerous form of play.
   - grounding: W. J. Miller and J. H. Frey, “Skydivers as Risk Takers: An Examination”; a logbook kept by a skydiver in 1992; my childhood
+  - gallery: [object Object]; [object Object]; [object Object]; [object Object]
 - ***Keep Calm and Carry On***
   - years: 2025–
   - status: In development
