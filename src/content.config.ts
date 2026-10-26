@@ -135,6 +135,13 @@ const studentwork = defineCollection({
           line: z.string(), // one line on what students do
           link: z.string().url().optional(), // the work itself (video, documents)
           linkLabel: z.string().optional(), // e.g. Watch, Read, Rules
+          // a passage of student writing, typeset in place of an image
+          excerpt: z
+            .object({
+              heading: z.string().optional(),
+              lines: z.array(z.object({ source: z.enum(['game', 'poem']), text: z.string() })),
+            })
+            .optional(),
         }),
       )
       .default([]),

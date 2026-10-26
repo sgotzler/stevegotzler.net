@@ -124,11 +124,23 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
           <div class="sw-group-rows">
             {w.data.assignments.map((a, i) => (
               <article class="sw-row">
-                <Figure
-                  id={`${w.id}-${i + 1}`}
-                  alt={w.data.gallery?.[i]?.alt ?? ''}
-                  note={`still from ${a.title.replaceAll('*', '')}`}
-                />
+                {a.excerpt ? (
+                  <figure class="sw-excerpt">
+                    {a.excerpt.heading && <figcaption>{a.excerpt.heading}</figcaption>}
+                    {a.excerpt.lines.map((l) => (
+                      <p class={l.source}>{l.text}</p>
+                    ))}
+                    <p class="sw-excerpt-key">
+                      <span class="game">game text</span> · <span class="poem">pastoral poetry</span>
+                    </p>
+                  </figure>
+                ) : (
+                  <Figure
+                    id={`${w.id}-${i + 1}`}
+                    alt={w.data.gallery?.[i]?.alt ?? ''}
+                    note={`still from ${a.title.replaceAll('*', '')}`}
+                  />
+                )}
                 <div>
                   <p class="sw-kicker">
                     {a.course}
