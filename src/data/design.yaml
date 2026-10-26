@@ -10,10 +10,10 @@
   imageNote: spreads from the altered manual
   # Placeholder photos of the 1992 manual and logbook, until scans of the altered pages exist.
   gallery:
-    - alt: "The cover of Parachuting Manual with Log, a pocket-sized first jump course, with a photograph of a skydiver under a square canopy"
-    - alt: "A page titled The Count, with small drawings of a skydiver in each position from Arch Thousand to Check Thousand"
-    - alt: "The Emergency Procedures spread, bordered in black and white hazard stripes, with drawings of canopy malfunctions"
-    - alt: "A logbook page with the first four jumps of 1992 filled in by hand: dates, aircraft, altitude, and seconds of delay"
+    - alt: "The page Parachute Nomenclature and Function, with drawings of piggyback and conventional rigs, three canopy types, and a labelled diagram of a square canopy"
+    - alt: "Two handwritten logbook entries from late 1992; one records broken steering lines and a hard landing: Should have cut away!"
+    - alt: "The manual's Warning and Disclaimer, which begins: Whenever a person leaves the ground, he or she risks injury and even death"
+    - alt: "The back cover, a photograph of skydivers linked in formation, with the quotation: and once you have tasted flight, you will walk the earth with your eyes turned skyward"
 
 - id: keep-calm-and-carry-on
   order: 2

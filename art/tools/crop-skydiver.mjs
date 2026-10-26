@@ -12,6 +12,11 @@ const crops = {
   'f-nomenclature': ['03', { left: 28, top: 318, width: 720, height: 480 }],
   'g-logbook-card': ['15', { left: 10, top: 2, width: 744, height: 496 }],
   'h-disclaimer': ['10', { left: 560, top: 100, width: 495, height: 330 }],
+  // second round, close-cropped (2026-10-26)
+  'i-nomenclature-close': ['03', { left: 66, top: 352, width: 636, height: 424 }],
+  'j-logbook-card-cutaway': ['16', { left: 10, top: 2, width: 744, height: 496 }],
+  'k-disclaimer-close': ['10', { left: 590, top: 100, width: 414, height: 276 }],
+  'l-back-cover-close': ['11', { left: 40, top: 478, width: 440, height: 293 }],
 };
 for (const [name, [photo, r]] of Object.entries(crops))
   await sharp(`${dir}photos/${photo}.jpg`).extract(r).resize(1200, 800).jpeg({ quality: 88 }).toFile(`${dir}crop-${name}.jpg`);
