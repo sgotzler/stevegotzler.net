@@ -17,6 +17,9 @@ const crops = {
   'j-logbook-card-cutaway': ['16', { left: 10, top: 2, width: 744, height: 496 }],
   'k-disclaimer-close': ['10', { left: 590, top: 100, width: 414, height: 276 }],
   'l-back-cover-close': ['11', { left: 40, top: 478, width: 440, height: 293 }],
+  // third round: no table showing (2026-10-26)
+  'm-jump-log-tight': ['09', { left: 48, top: 128, width: 468, height: 312 }],
+  'n-disclaimer-tight': ['10', { left: 602, top: 128, width: 396, height: 264 }],
 };
 for (const [name, [photo, r]] of Object.entries(crops))
   await sharp(`${dir}photos/${photo}.jpg`).extract(r).resize(1200, 800).jpeg({ quality: 88 }).toFile(`${dir}crop-${name}.jpg`);
