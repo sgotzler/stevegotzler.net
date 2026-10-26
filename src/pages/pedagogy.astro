@@ -125,7 +125,19 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
           <div class="sw-group-rows">
             {w.data.assignments.map((a, i) => (
               <article class="sw-row">
-                {a.excerpt && imageFor(`${w.id}-${i + 1}`) ? (
+                {a.video ? (
+                  <video
+                    class="sw-video"
+                    src={a.video.src}
+                    poster={a.video.poster}
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    aria-label={w.data.gallery?.[i]?.alt ?? ''}
+                  />
+                ) : a.excerpt && imageFor(`${w.id}-${i + 1}`) ? (
                   <div class="sw-media">
                     <Figure id={`${w.id}-${i + 1}`} alt={w.data.gallery?.[i]?.alt ?? ''} />
                     <figure class="sw-excerpt beneath">
@@ -173,4 +185,13 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
     }
     <p class="catalogue-note">Sample work is shared with the permission of the students.</p>
   </section>
+  <script>
+    // Looping clips stay still for anyone who has asked their device to reduce motion.
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll<HTMLVideoElement>('video.sw-video').forEach((v) => {
+        v.removeAttribute('autoplay');
+        v.pause();
+      });
+    }
+  </script>
 </Base>

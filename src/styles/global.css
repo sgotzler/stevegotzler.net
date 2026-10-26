@@ -948,3 +948,13 @@ button.bracket {
   border-top: 0;
   justify-content: flex-start;
 }
+
+/* Student Work: a silent looping clip in place of a still */
+.sw-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--color-surface);
+  border: 1px solid var(--color-rule);
+}

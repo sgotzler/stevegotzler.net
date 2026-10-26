@@ -12,11 +12,13 @@
   slides: 2
   imageNote: a still from each assignment
   gallery:
-    - alt: ""
+    - alt: "A clip from a student video essay: a scene from the game INSIDE set side by side with the staircase shot from The Cabinet of Dr. Caligari"
     - alt: "A Stardew Valley dialogue box reading: You're starting to feel exhausted."
   assignments:
     - course: ENGL 257
       title: Video Essays
+      # A silent looping clip from a student video essay (public/video), with a still for reduced motion
+      video: { src: /video/video-essays-loop.mp4?v=2, poster: /video/video-essays-poster.jpg?v=2 }
       line: Students capture and edit gameplay footage together with cinematic footage, composing essays that make visual arguments about the interpenetrated histories of games and cinema. Each essay is scripted, storyboarded, and edited in stages, building its argument shot by shot.
       linkLabel: Watch
     - course: ENGL 258
