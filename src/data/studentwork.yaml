@@ -11,6 +11,9 @@
   courses: ENGL 257 · ENGL 258
   slides: 2
   imageNote: a still from each assignment
+  gallery:
+    - alt: ""
+    - alt: "A Stardew Valley dialogue box reading: You're starting to feel exhausted."
   assignments:
     - course: ENGL 257
       title: Video Essays
@@ -19,15 +22,6 @@
     - course: ENGL 258
       courseNote: (now ENGL 168)
       title: "*Stardew* Poetry"
-      # Shown in place of an image: an excerpt from a student poem, typeset so its two sources show.
-      # `game` lines are text from Stardew Valley (set in the sans-serif); `poem` lines are from the pastoral poets (serif italic).
-      excerpt:
-        heading: "Idyll 2: Negotium"
-        lines:
-          - { source: game, text: "The spirits are somewhat annoyed today. Luck will not be on your side." }
-          - { source: poem, text: "It’s time again to put the bull before the deep-pointed plough to pull his weight" }
-          - { source: game, text: "You’re starting to feel exhausted" }
-          - { source: poem, text: "Where were you, Nymphs, when Daphnis wasted away?" }
       line: Students cut-and-mix in-game text from *Stardew Valley* with pastoral poetry from Theocritus to Wordsworth, composing new eclogues. The remix format collapses close reading, procedural analysis, and creative writing into a single composition.
       linkLabel: Read
 

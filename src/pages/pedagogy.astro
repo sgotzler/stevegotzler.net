@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import PageMark from '../components/PageMark.astro';
 import Figure from '../components/Figure.astro';
+import { imageFor } from '../lib/images';
 import { inline } from '../lib/text';
 
 const courses = (await getCollection('courses')).sort((a, b) => a.data.order - b.data.order);
@@ -124,7 +125,17 @@ const paragraphs = (text: string) => text.split(/\n\s*\n/).map((p) => p.trim());
           <div class="sw-group-rows">
             {w.data.assignments.map((a, i) => (
               <article class="sw-row">
-                {a.excerpt ? (
+                {a.excerpt && imageFor(`${w.id}-${i + 1}`) ? (
+                  <div class="sw-media">
+                    <Figure id={`${w.id}-${i + 1}`} alt={w.data.gallery?.[i]?.alt ?? ''} />
+                    <figure class="sw-excerpt beneath">
+                      {a.excerpt.heading && <figcaption>{a.excerpt.heading}</figcaption>}
+                      {a.excerpt.lines.map((l) => (
+                        <p class={l.source}>{l.text}</p>
+                      ))}
+                    </figure>
+                  </div>
+                ) : a.excerpt ? (
                   <figure class="sw-excerpt">
                     {a.excerpt.heading && <figcaption>{a.excerpt.heading}</figcaption>}
                     {a.excerpt.lines.map((l) => (

@@ -938,3 +938,13 @@ button.bracket {
   font-family: var(--serif);
   font-size: 0.6875rem;
 }
+
+/* Stardew Poetry: the game's own text box, with the poem's lines set beneath it */
+.sw-media .figure-img {
+  image-rendering: pixelated;
+}
+.sw-excerpt.beneath {
+  aspect-ratio: auto;
+  border-top: 0;
+  justify-content: flex-start;
+}
