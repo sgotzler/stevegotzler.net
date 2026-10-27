@@ -17,7 +17,7 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,7 +26,7 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{pageTitle}</title>
     <script is:inline>
-      // Apply a saved light/dark choice before the page paints.
+      // Dark for every visitor by default (set on <html> above); a saved light/dark choice replaces it before the page paints.
       try {
         const t = localStorage.getItem('theme');
         if (t) document.documentElement.dataset.theme = t;
@@ -75,7 +75,7 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
     </footer>
 
     <script is:inline>
-      // Light/dark switch. Dark is the default; light follows the system setting unless chosen here.
+      // Light/dark switch. Dark is the default for everyone, whatever their system setting; the choice is remembered.
       document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const root = document.documentElement;
         const dark =
