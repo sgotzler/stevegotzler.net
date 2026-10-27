@@ -768,14 +768,28 @@ button.bracket {
   .about-main {
     padding-right: 0;
   }
+  /* On a phone the diagram comes first, under the label and lede and above the bio; CV and email close the page.
+     The two columns dissolve so their parts can be reordered. */
+  .about-main,
   .about-side {
-    margin-top: 2rem;
-    border-left: 0;
-    border-top: 1px solid var(--color-rule);
-    padding: 1.5rem 0 0;
+    display: contents;
+  }
+  .about .page-head {
+    order: 1;
   }
   .about-mark {
+    order: 2;
     max-width: 16rem;
+    margin-bottom: 2rem;
+  }
+  .about-body {
+    order: 3;
+  }
+  .about-side .fields {
+    order: 4;
+    margin-top: 2rem;
+    border-top: 1px solid var(--color-rule);
+    padding-top: 1.5rem;
   }
 }
 
@@ -826,6 +840,7 @@ button.bracket {
   }
   .catalogue.across .plate.project .ph,
   .catalogue.across .plate.project .figure-img {
+    height: auto; /* the full-height rule above only makes sense side by side; stacked, some browsers let the text run over it */
     border-width: 0 0 1px;
   }
 }
