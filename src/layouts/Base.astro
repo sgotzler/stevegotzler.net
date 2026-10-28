@@ -25,6 +25,10 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>{pageTitle}</title>
+    {site.googleVerification && <meta name="google-site-verification" content={site.googleVerification} />}
+    {site.goatcounter && (
+      <script is:inline async data-goatcounter={`https://${site.goatcounter}.goatcounter.com/count`} src="https://gc.zgo.at/count.js"></script>
+    )}
     <script is:inline>
       // Dark for every visitor by default (set on <html> above); a saved light/dark choice replaces it before the page paints.
       try {
